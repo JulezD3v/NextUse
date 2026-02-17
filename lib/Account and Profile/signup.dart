@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:nextuse/Account and Profile/Widgets/container_widget.dart';
+import 'package:nextuse/Account and Profile/Widgets/textfield_widget.dart';
+import 'package:nextuse/Account and Profile/Widgets/button_widget.dart';
+import 'package:nextuse/Account%20and%20Profile/user_homepage.dart';
+class Signup extends StatefulWidget {
+  const Signup({super.key});
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+  @override
+  State<Signup> createState() => _SignupState();
+}
 
+class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,14 +39,18 @@ class SignUp extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              const Text(
-                "NextUse",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF5A5546),
-                ),
-              ),
+               RichText(
+                        text: TextSpan(
+                          style: TextStyle(
+                            color: Color(0xFF8AAE3F),
+                            fontSize: 14,
+                          ),
+                          children: [
+                            TextSpan(text: "Next", style:TextStyle(color:Color(0xFF5A5546),fontSize: 32,fontWeight: FontWeight.bold,)),
+                            TextSpan(text: "Use",style: TextStyle(color: Color(0xFF8AAE3F),fontSize: 32,fontWeight: FontWeight.bold,)),
+                          ],
+                        ),
+                      ),
 
               const SizedBox(height: 8),
 
@@ -53,70 +65,22 @@ class SignUp extends StatelessWidget {
               const SizedBox(height: 30),
 
               // 🔹 Main Card
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF4F1E9),
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.05),
-                      blurRadius: 20,
-                      offset: const Offset(0, 10),
-                    )
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+              AuthContainer(title: "Create Account", 
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                 children: [
+                  const AuthTextField(label: "Full Name", hint: "Jane Doe", icon: Icons.person), 
+                  const SizedBox(height: 10), 
+                  const AuthTextField(label: "Email Address", hint: "name@example.com", icon: Icons.email),
+                  const SizedBox(height: 10),
+                  const AuthTextField(label: "Password", hint: ".....", icon: Icons.lock),
+                  const SizedBox(height: 10),
+                  const AuthTextField(label: "Confirm Password", hint: "......", icon: Icons.lock),
+                  const SizedBox(height: 10),
 
-                    const Center(
-                      child: Text(
-                        "Create Account",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF5A5546),
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 30),
-
-                    _buildField("Full Name", "Jane Doe", Icons.person),
-                    _buildField("Email Address", "jane@example.com", Icons.email),
-                    _buildField("Phone Number", "+1 (555) 000-0000", Icons.phone),
-                    _buildField("Password", "••••••••", Icons.lock, obscure: true),
-
-                    const SizedBox(height: 10),
-
-                    // 🔹 Terms Row
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Icon(
-                          Icons.circle_outlined,
-                          size: 20,
-                          color: Colors.grey,
-                        ),
-                        const SizedBox(width: 8),
-                        Expanded(
-                          child: RichText(
-                            text: const TextSpan(
-                              style: TextStyle(
-                                color: Color(0xFF5A5546),
-                                fontSize: 14,
-                              ),
-                              children: [
-                                TextSpan(text: "I agree to the "),
-                                TextSpan(
-                                  text: "Terms",
-                                  style: TextStyle(
-                                    color: Color(0xFF8AAE3F),
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                  RichText(text: TextSpan(
+                                text: "I agree to the ",
+                                children: [TextSpan(text: "Terms", style: TextStyle(color: Color(0xFF8AAE3F),fontWeight: FontWeight.w600,),
                                 ),
                                 TextSpan(text: " and "),
                                 TextSpan(
@@ -126,45 +90,13 @@ class SignUp extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 25),
-
-                    // 🔹 Create Account Button
-                    Container(
-                      width: double.infinity,
-                      height: 55,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFA8C0CF),
-                        borderRadius: BorderRadius.circular(40),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.blue.withOpacity(0.2),
-                            blurRadius: 10,
-                            offset: const Offset(0, 6),
-                          )
-                        ],
-                      ),
-                      child: const Center(
-                        child: Text(
-                          "✔  Create Account",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF5A5546),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                                ]), 
+                                ),
+                  PrimaryButton(text: "Create Account",colors:Color(0xFF8AAE3F), 
+                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_) => UserHomepage()));},) //<= To Homepage 
+                 ],
+              )
               ),
-
               const SizedBox(height: 30),
 
               // 🔹 Bottom Sign In
@@ -193,48 +125,6 @@ class SignUp extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  // 🔹 Reusable Field Builder
-  static Widget _buildField(
-    String label,
-    String hint,
-    IconData icon, {
-    bool obscure = false,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-
-        Text(
-          label,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFF5A5546),
-          ),
-        ),
-
-        const SizedBox(height: 8),
-
-        TextField(
-          obscureText: obscure,
-          decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: Colors.grey),
-            hintText: hint,
-            filled: true,
-            fillColor: Colors.white,
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 18),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(40),
-              borderSide: BorderSide.none,
-            ),
-          ),
-        ),
-
-        const SizedBox(height: 20),
-      ],
     );
   }
 }

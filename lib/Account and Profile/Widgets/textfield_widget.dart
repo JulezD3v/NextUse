@@ -33,7 +33,7 @@ class AuthTextField extends StatelessWidget {
         TextField(
           obscureText: obscure,
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: const Color(0xFF8AAE3F)),
+            prefixIcon: Icon(icon, color: const Color(0xFF5A5546)),
             hintText: hint,
             filled: true,
             fillColor: Colors.white,

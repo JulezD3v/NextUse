@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:nextuse/Account and Profile/signup.dart';
 import 'package:nextuse/Account and Profile/Widgets/container_widget.dart';
 import 'package:nextuse/Account and Profile/Widgets/textfield_widget.dart';
 import 'package:nextuse/Account and Profile/Widgets/button_widget.dart';
-import 'package:nextuse/Account%20and%20Profile/signup.dart';
+
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -48,15 +49,19 @@ class _LoginState extends State<Login> {
               const SizedBox(height: 20),
 
               // 🔹 App Name
-              const Text(
-                "NextUse",
-                style: TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF5A5546),
-                ),
-              ),
-
+                RichText(
+                        text: TextSpan(
+                          style: TextStyle(
+                            color: Color(0xFF8AAE3F),
+                            fontSize: 14,
+                          ),
+                          children: [
+                            TextSpan(text: "Next", style:TextStyle(color:Color(0xFF5A5546),fontSize: 32,fontWeight: FontWeight.bold,)),
+                            TextSpan(text: "Use",style: TextStyle(color: Color(0xFF8AAE3F),fontSize: 32,fontWeight: FontWeight.bold,)),
+                          ],
+                        ),
+                      ),
+ 
               const SizedBox(height: 8),
 
               const Text(
@@ -75,22 +80,12 @@ class _LoginState extends State<Login> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const AuthTextField(
-                      label: "Email",
-                      hint: "hello@nextuse.com",
-                      icon: Icons.email,
-                    ),
-
-                    const AuthTextField(
-                      label: "Password",
-                      hint: "••••••••",
-                      icon: Icons.lock,
-                      obscure: true,
-                    ),
+                    const AuthTextField(label: "Email",hint: "hello@nextuse.com",icon: Icons.email,),
+                    const AuthTextField(label: "Password",hint: "••••••••",icon: Icons.lock, obscure: true,),
 
                     const SizedBox(height: 10),
 
-                    PrimaryButton(text: "Login", onPressed: () {}, colors: Colors.green,),
+                    PrimaryButton(text: "Login", onPressed: () {}, colors:Color(0xFF8AAE3F),),
 
                     const SizedBox(height: 10),
                     
@@ -119,18 +114,18 @@ class _LoginState extends State<Login> {
                     ),
                     
                     const SizedBox(height: 30),
-                    PrimaryButton(text: "Login with Google →", onPressed: () {}, colors: const Color.fromARGB(255, 214, 234, 248),),
+                    PrimaryButton(text: "Login with Google →", onPressed: () {}, colors: Color(0xFF8AAE3F)),
                     const SizedBox(height: 10),
 
                    Center(
                       child: RichText(
                         text: TextSpan(
                           style: TextStyle(
-                            color: Color(0xFF5A5546),
+                            color: Color(0xFF8AAE3F),
                             fontSize: 14,
                           ),
                           children: [
-                            TextSpan(text: "New here? "),
+                            TextSpan(text: "New here? ", style:TextStyle(color:Colors.black54)),
                             TextSpan(
                               text: "Create an account",
                               style: TextStyle(

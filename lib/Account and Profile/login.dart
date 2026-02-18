@@ -4,6 +4,7 @@ import 'package:nextuse/Account and Profile/signup.dart';
 import 'package:nextuse/Account and Profile/Widgets/container_widget.dart';
 import 'package:nextuse/Account and Profile/Widgets/textfield_widget.dart';
 import 'package:nextuse/Account and Profile/Widgets/button_widget.dart';
+import 'package:nextuse/HomePage/homepage.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -85,7 +86,10 @@ class _LoginState extends State<Login> {
 
                     const SizedBox(height: 10),
 
-                    PrimaryButton(text: "Login", onPressed: () {}, colors:Color(0xFF8AAE3F),),
+                    PrimaryButton(text: "Login", onPressed: () {
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (_)=> HomePage()));  //===> to homepage
+                    }, colors:Color(0xFF8AAE3F),),
 
                     const SizedBox(height: 10),
                     

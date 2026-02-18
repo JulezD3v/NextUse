@@ -80,9 +80,10 @@ class _SignupState extends State<Signup> {
 
                   RichText(text: TextSpan(
                                 text: "I agree to the ",
+                                style: TextStyle(color: Colors.black54),
                                 children: [TextSpan(text: "Terms", style: TextStyle(color: Color(0xFF8AAE3F),fontWeight: FontWeight.w600,),
                                 ),
-                                TextSpan(text: " and "),
+                                TextSpan(text: " and ", style: TextStyle(color: Colors.black54)),
                                 TextSpan(
                                   text: "Privacy Policy",
                                   style: TextStyle(
@@ -92,6 +93,8 @@ class _SignupState extends State<Signup> {
                                 ),
                                 ]), 
                                 ),
+
+                                const SizedBox(height: 10),
                   PrimaryButton(text: "Create Account",colors:Color(0xFF8AAE3F), 
                   onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_) => UserHomepage()));},) //<= To Homepage 
                  ],

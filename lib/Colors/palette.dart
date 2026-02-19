@@ -5,14 +5,14 @@ class NeutralColors {
   static const c200 = Color(0xFFF9F7F1);
   static const c300 = Color(0xFFEDE8D4); // Main background color , tiles are inclusive
   static const c400 = Color(0xFFD5CEAE);
-  static const c500 = Color(0xFFC1B586); //reminder & calender date
+  static const c500 = Color(0xFFC1B586); //grid background
 }
 
 class EarthColors {
   static const c100 = Color(0xFFA29667);
   static const c200 = Color(0xFF857B51);
-  static const c300 = Color(0xFF655D3E);
-  static const c400 = Color(0xFF3F3A27);
+  static const c300 = Color(0xFF655D3E); //textcolor
+  static const c400 = Color(0xFF3F3A27);// calText
   static const c500 = Color(0xFF262317); // text color
 }
 
@@ -31,7 +31,7 @@ class GreenColors {
 class YellowColors {
   static const c100 = Color(0xFFFDFBED);
   static const c200 = Color(0xFFFAF5D1);
-  static const c300 = Color(0xFFF6EDAA);
+  static const c300 = Color(0xFFF6EDAA);//Calender background
   static const c400 = Color(0xFFF2E687);
   static const c500 = Color(0xFFEDDD59);
   static const c600 = Color(0xFFDDCA2C);
@@ -42,9 +42,9 @@ class YellowColors {
 
 class BlueColors {
   static const c100 = Color(0xFFE8F1F7);
-  static const c200 = Color(0xFFD2E3EF);
+  static const c200 = Color(0xFFD2E3EF);//confirmed recieved donated tile
   static const c300 = Color(0xFFA4C8DF);
-  static const c400 = Color(0xFF6CA8D0);
+  static const c400 = Color(0xFF6CA8D0);// button boundary
   static const c500 = Color(0xFF3B87BA);
   static const c600 = Color(0xFF31719B);
   static const c700 = Color(0xFF275A7C);

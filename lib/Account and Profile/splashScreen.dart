@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import'package:nextuse/Account and Profile/login.dart';
+import'package:nextuse/Account and Profile/onboarding.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {
@@ -35,7 +35,7 @@ Future<void> _initializeApp() async {
 
   Navigator.pushReplacement(
     context,
-    MaterialPageRoute(builder: (_) => const Login()),
+    MaterialPageRoute(builder: (_) => const Onboarding()),
   );
 }
 

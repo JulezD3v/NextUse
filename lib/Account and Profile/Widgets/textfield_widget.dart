@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nextuse/Colors/color.dart';
 
 class AuthTextField extends StatelessWidget {
   final String label;
@@ -22,10 +23,7 @@ class AuthTextField extends StatelessWidget {
 
         Text(
           label,
-          style: const TextStyle(
-            fontSize: 16,
-            color: Color(0xFF5A5546),
-          ),
+          style:TextStyle(fontSize: 16,color: TextCol().gentext,),
         ),
 
         const SizedBox(height: 8),
@@ -33,14 +31,12 @@ class AuthTextField extends StatelessWidget {
         TextField(
           obscureText: obscure,
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color: const Color(0xFF5A5546)),
+            prefixIcon: Icon(icon, color:ButtonCol().btnIcon),
             hintText: hint,
             filled: true,
-            fillColor: Colors.white,
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 18),
+            fillColor: TextCol().txtfield,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,
             ),
           ),
@@ -51,3 +47,26 @@ class AuthTextField extends StatelessWidget {
     );
   }
 }
+
+// Align(
+//                     alignment: Alignment.centerLeft,
+//                     child: const Text(
+//                       "Email",
+//                       style: TextStyle(
+//                         color: Color(0xFF8B7E54),
+//                       ),
+//                     ),
+//                   ),
+              
+//                   const SizedBox(height: 8),
+              
+//                   TextField(
+//                     decoration: InputDecoration(
+//                       filled: true,
+//                       fillColor: const Color(0xFFDCD7C9),
+//                       border: OutlineInputBorder(
+//                         borderRadius: BorderRadius.circular(8),
+//                         borderSide: BorderSide.none,
+//                       ),
+//                     ),
+//                   ),

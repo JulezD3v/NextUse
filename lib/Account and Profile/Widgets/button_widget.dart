@@ -1,4 +1,5 @@
 import'package:flutter/material.dart';
+import'package:nextuse/Colors/color.dart';
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback? onPressed;
@@ -17,24 +18,24 @@ class PrimaryButton extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         width: double.infinity,
-        height: 55,
-        decoration: BoxDecoration(
+        height: 50,
+        decoration: ShapeDecoration(
           color: colors,
-          borderRadius: BorderRadius.circular(40),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.3),
-              blurRadius: 10,
-              offset: const Offset(0, 6),
-            )
-          ],
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: TextCol().gentext,
+          //     blurRadius: 5,
+          //     offset: const Offset(0, 6),
+          //   )
+          // ],
         ),
         child: Center(
           child: Text(
             text,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
+            style: TextStyle(
+              color:  Color(0xFF6E7F3F),
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),

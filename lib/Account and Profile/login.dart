@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/Account%20and%20Profile/user_homepage.dart';
+import 'package:nextuse/HomePage/item_widget/user_homepage.dart';
 import 'Widgets/button_widget.dart';
 import 'Widgets/textfield_widget.dart';
 import 'package:nextuse/Colors/color.dart';
@@ -25,10 +25,7 @@ class _LoginState extends State<Login> {
                 
                 mainAxisSize: MainAxisSize.min,
                 children: [
-              
-                  // =========================
-                  // Logo Icon
-                  // =========================
+           //Logo
                    Container(
                 height: 90,
                 width: 90,
@@ -77,7 +74,7 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 30),
 
                   AuthTextField(label: "Email", hint: "name@example.com", icon: Icons.email),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
 
                   AuthTextField(label: "Password", hint: "*****", icon:Icons.fullscreen ),
      

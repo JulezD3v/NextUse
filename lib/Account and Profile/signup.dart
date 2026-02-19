@@ -1,20 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Account and Profile/Widgets/container_widget.dart';
-import 'package:nextuse/Account and Profile/Widgets/textfield_widget.dart';
-import 'package:nextuse/Account and Profile/Widgets/button_widget.dart';
-import 'package:nextuse/Account%20and%20Profile/user_homepage.dart';
+import 'package:nextuse/Account%20and%20Profile/login.dart';
+//import 'Widgets/container_widget.dart';
+import 'Widgets/textfield_widget.dart';
+import 'Widgets/button_widget.dart';
+import '../HomePage/item_widget/user_homepage.dart';
+import 'package:nextuse/Colors/color.dart';
+import 'Widgets/role_widget.dart';
+
 class Signup extends StatefulWidget {
-  const Signup({super.key});
+   const Signup({Key? key}) : super(key: key);
 
   @override
   State<Signup> createState() => _SignupState();
+   
+
 }
 
+
+
 class _SignupState extends State<Signup> {
+  UserRole? selectedRole;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE9E4D8),
+      backgroundColor: Background().mainbg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -24,104 +33,155 @@ class _SignupState extends State<Signup> {
 
               // 🔹 Logo Circle
               Container(
-                height: 110,
-                width: 110,
-                decoration: const BoxDecoration(
+                height: 90,
+                width: 90,
+                decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Color(0xFF8AAE3F),
+                  color: ButtonCol().btnIcon,
                 ),
-                child: const Icon(
+                child:Icon(
                   Icons.recycling,
-                  size: 55,
-                  color: Colors.white,
+                  size: 40,
+                  color: Background().containbg,
                 ),
               ),
 
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
                RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                            color: Color(0xFF8AAE3F),
-                            fontSize: 14,
-                          ),
+                        text: TextSpan(style: TextStyle(color: Color(0xFF8AAE3F)),
                           children: [
-                            TextSpan(text: "Next", style:TextStyle(color:Color(0xFF5A5546),fontSize: 32,fontWeight: FontWeight.bold,)),
-                            TextSpan(text: "Use",style: TextStyle(color: Color(0xFF8AAE3F),fontSize: 32,fontWeight: FontWeight.bold,)),
+                            TextSpan(text: "Next", style:TextStyle(color:Color(0xFF6E7F3F),fontSize: 32,fontWeight: FontWeight.bold,)),
+                            TextSpan(text: "Use",style: TextStyle(color:TextCol().gentext,fontSize: 32,fontWeight: FontWeight.bold,)),
                           ],
                         ),
                       ),
 
-              const SizedBox(height: 8),
+              const SizedBox(height: 10),
 
-              const Text(
-                "Join the sustainable movement.",
+              Text(
+                "Create an Account",
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xFF7A7464),
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color:Color(0xFF8B7E54),
                 ),
               ),
 
               const SizedBox(height: 30),
 
-              // 🔹 Main Card
-              AuthContainer(title: "Create Account", 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                 children: [
-                  const AuthTextField(label: "Full Name", hint: "Jane Doe", icon: Icons.person), 
-                  const SizedBox(height: 10), 
-                  const AuthTextField(label: "Email Address", hint: "name@example.com", icon: Icons.email),
-                  const SizedBox(height: 10),
-                  const AuthTextField(label: "Password", hint: ".....", icon: Icons.lock),
-                  const SizedBox(height: 10),
-                  const AuthTextField(label: "Confirm Password", hint: "......", icon: Icons.lock),
-                  const SizedBox(height: 10),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                    const AuthTextField(label: "Full Name", hint: "Jane Doe", icon: Icons.person), 
+                    const SizedBox(height: 10), 
+                    const AuthTextField(label: "Email Address", hint: "name@example.com", icon: Icons.email),
+                    const SizedBox(height: 10),
 
-                  RichText(text: TextSpan(
-                                text: "I agree to the ",
-                                style: TextStyle(color: Colors.black54),
-                                children: [TextSpan(text: "Terms", style: TextStyle(color: Color(0xFF8AAE3F),fontWeight: FontWeight.w600,),
-                                ),
-                                TextSpan(text: " and ", style: TextStyle(color: Colors.black54)),
-                                TextSpan(
-                                  text: "Privacy Policy",
-                                  style: TextStyle(
-                                    color: Color(0xFF8AAE3F),
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                ]), 
-                                ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Select Account Type",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: TextCol().gentext,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
 
-                                const SizedBox(height: 10),
-                  PrimaryButton(text: "Create Account",colors:Color(0xFF8AAE3F), 
-                  onPressed: (){Navigator.push(context, MaterialPageRoute(builder: (_) => UserHomepage()));},) //<= To Homepage 
-                 ],
-              )
-              ),
-              const SizedBox(height: 30),
-
-              // 🔹 Bottom Sign In
-              RichText(
-                text: const TextSpan(
-                  style: TextStyle(
-                    color: Color(0xFF5A5546),
-                    fontSize: 15,
-                  ),
-                  children: [
-                    TextSpan(text: "Already have an account? "),
-                    TextSpan(
-                      text: "Sign in",
-                      style: TextStyle(
-                        color: Color(0xFF8AAE3F),
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                      ),
+                        RoleSelector(
+                          selectedRole: selectedRole,
+                          onChanged: (role) {
+                            setState(() {
+                              selectedRole = role;
+                            });
+                          },
+                        ),
+                      ],
                     ),
+                    const SizedBox(height: 12),
+
+                    const AuthTextField(label: "Password", hint: "*****", icon: Icons.fullscreen),
+                    const SizedBox(height: 10),
+                    const AuthTextField(label: "Confirm Password", hint: "*****", icon: Icons.fullscreen),
+                    const SizedBox(height: 8),
+            
+                    Row(
+                      children: [
+                        Icon(Icons.circle_outlined, size: 20, color:TextCol().txtfield),
+                        const SizedBox(width: 5,),
+                        RichText(text: TextSpan(
+                                      text: "I agree to the ",
+                                      style: TextStyle(color: Colors.black54),
+                                      children: [TextSpan(text: "Terms", style: TextStyle(color: Color(0xFF8AAE3F),fontWeight: FontWeight.w600,),
+                                      ),
+                                      TextSpan(text: " and ", style: TextStyle(color: Colors.black54)),
+                                      TextSpan(
+                                        text: "Privacy Policy",
+                                        style: TextStyle(
+                                  color: Color(0xFF8AAE3F),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    const SizedBox(height: 10),
+                    PrimaryButton(
+                      text: "Create Account",
+                      colors: ButtonCol().mybtn,
+                      onPressed: () { // to be changed
+                        if (selectedRole == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Please select account type"),
+                            ),
+                          );
+                          return;
+                        }
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => UserHomepage()),
+                        );
+                      },
+                    ), //<= To Homepage
                   ],
                 ),
               ),
+
+              const SizedBox(height: 15),
+
+              // 🔹 Bottom Sign In
+              Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Already have an account? ",
+                        style: TextStyle(color: Color(0xFF8B7E54)),
+                      ),
+
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (_) => Login()));
+                        },
+                        child: const Text(
+                          "Sign In",
+                          style: TextStyle(
+                            color: Color(0xFF6E7F3F),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
 
               const SizedBox(height: 30),
             ],

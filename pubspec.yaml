@@ -13,8 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
   gestures: ^1.0.0  
-
   cupertino_icons: ^1.0.8
+  flutter_bloc: ^9.1.1
+  bloc: ^9.2.0
+  equatable: ^2.0.8
 
 dev_dependencies:
   flutter_test:

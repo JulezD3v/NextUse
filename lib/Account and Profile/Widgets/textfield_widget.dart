@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 
 class AuthTextField extends StatelessWidget {
   final String label;
@@ -23,7 +23,7 @@ class AuthTextField extends StatelessWidget {
 
         Text(
           label,
-          style:TextStyle(fontSize: 16,color: TextCol().gentext,),
+          style:TextStyle(fontSize: 16,color: TextCol.gentext,),
         ),
 
         const SizedBox(height: 8),
@@ -31,10 +31,10 @@ class AuthTextField extends StatelessWidget {
         TextField(
           obscureText: obscure,
           decoration: InputDecoration(
-            prefixIcon: Icon(icon, color:ButtonCol().btnIcon),
+            prefixIcon: Icon(icon, color:ButtonCol.btnIcon),
             hintText: hint,
             filled: true,
-            fillColor: TextCol().txtfield,
+            fillColor: TextCol.txtfield,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,

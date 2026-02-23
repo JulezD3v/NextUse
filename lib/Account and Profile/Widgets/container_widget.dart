@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 
 class AuthContainer extends StatelessWidget {
   final String title;
@@ -17,11 +17,11 @@ class AuthContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        color: Background().containbg,
+        color: Background.containbg,
         borderRadius: BorderRadius.circular(30),
         boxShadow: [
           BoxShadow(
-            color:  Background().gridbg.withOpacity(0.05),
+            color:  Background.gridbg.withOpacity(0.05),
             blurRadius: 20,
             offset: const Offset(0, 10),
           )
@@ -36,7 +36,7 @@ class AuthContainer extends StatelessWidget {
               style:TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
-                color: TextCol().gentext,
+                color: TextCol.gentext,
               ),
             ),
           ),

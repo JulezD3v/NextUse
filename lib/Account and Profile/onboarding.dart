@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 import 'Widgets/button_widget.dart';
 import './login.dart';
 
@@ -11,7 +11,7 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Background().mainbg, // beige background
+      backgroundColor: Background.mainbg, // beige background
       
       body: SafeArea(
         child: SingleChildScrollView(
@@ -27,7 +27,7 @@ class Onboarding extends StatelessWidget {
                 'assets/Logo/logo_bg.png',
                 height: 300,),
             
-                PrimaryButton(text: "Login", colors: ButtonCol().mybtn, 
+                PrimaryButton(text: "Login", colors: ButtonCol.mybtn, 
                 onPressed:(){
                    Navigator.push(context,
                 MaterialPageRoute(builder: (_)=> Login()));} ,
@@ -35,7 +35,7 @@ class Onboarding extends StatelessWidget {
             
                 const SizedBox(height: 20,),
             
-                PrimaryButton(text: "SignUp", colors: ButtonCol().mybtn, 
+                PrimaryButton(text: "SignUp", colors: ButtonCol.mybtn, 
                 onPressed:(){
                    Navigator.push(context,
                 MaterialPageRoute(builder: (_)=> Signup()));},
@@ -46,7 +46,7 @@ class Onboarding extends StatelessWidget {
                GestureDetector(
                 onTap: (){},
                  child: Text("PickUp Agent? SignUp/Login here",
-                 style: TextStyle(color: TextCol().txtcol,fontSize: 10),
+                 style: TextStyle(color: TextCol.txtcol,fontSize: 10),
                  ),
                ),
               ],

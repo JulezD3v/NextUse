@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 
 enum UserRole { user, pickupAgent, company }
 class RoleSelector extends StatelessWidget {
@@ -31,7 +31,7 @@ class RoleSelector extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 4),
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: isSelected ? ButtonCol().mybtn : Background().containbg,
+            color: isSelected ? ButtonCol.mybtn : Background.containbg,
             borderRadius: BorderRadius.circular(30),
             border: Border.all(
               color: const Color(0xFF8AAE3F),
@@ -45,7 +45,7 @@ class RoleSelector extends StatelessWidget {
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
                 color: isSelected
-                    ? Background().mainbg
+                    ? Background.mainbg
                     : const Color(0xFF6E7F3F),
               ),
             ),

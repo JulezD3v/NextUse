@@ -5,7 +5,7 @@ import 'Widgets/textfield_widget.dart';
 import 'Widgets/button_widget.dart';
 import '../HomePage/homepage.dart';
 import '../HomePage/home_content.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 import 'Widgets/role_widget.dart';
 
 class Signup extends StatefulWidget {
@@ -24,7 +24,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Background().mainbg,
+      backgroundColor: Background.mainbg,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -38,12 +38,12 @@ class _SignupState extends State<Signup> {
                 width: 90,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: ButtonCol().btnIcon,
+                  color: ButtonCol.btnIcon,
                 ),
                 child:Icon(
                   Icons.recycling,
                   size: 40,
-                  color: Background().containbg,
+                  color: Background.containbg,
                 ),
               ),
 
@@ -53,7 +53,7 @@ class _SignupState extends State<Signup> {
                         text: TextSpan(style: TextStyle(color: Color(0xFF8AAE3F)),
                           children: [
                             TextSpan(text: "Next", style:TextStyle(color:Color(0xFF6E7F3F),fontSize: 32,fontWeight: FontWeight.bold,)),
-                            TextSpan(text: "Use",style: TextStyle(color:TextCol().gentext,fontSize: 32,fontWeight: FontWeight.bold,)),
+                            TextSpan(text: "Use",style: TextStyle(color:TextCol.gentext,fontSize: 32,fontWeight: FontWeight.bold,)),
                           ],
                         ),
                       ),
@@ -89,7 +89,7 @@ class _SignupState extends State<Signup> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            color: TextCol().gentext,
+                            color: TextCol.gentext,
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -113,7 +113,7 @@ class _SignupState extends State<Signup> {
             
                     Row(
                       children: [
-                        Icon(Icons.circle_outlined, size: 20, color:TextCol().txtfield),
+                        Icon(Icons.circle_outlined, size: 20, color:TextCol.txtfield),
                         const SizedBox(width: 5,),
                         RichText(text: TextSpan(
                                       text: "I agree to the ",
@@ -137,7 +137,7 @@ class _SignupState extends State<Signup> {
                     const SizedBox(height: 10),
                     PrimaryButton(
                       text: "Create Account",
-                      colors: ButtonCol().mybtn,
+                      colors: ButtonCol.mybtn,
                       onPressed: () { // to be changed
                         if (selectedRole == null) {
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -150,7 +150,7 @@ class _SignupState extends State<Signup> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => Homepage()),
+                          MaterialPageRoute(builder: (_) => HomePage()),
                         );
                       },
                     ), //<= To Homepage

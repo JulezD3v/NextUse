@@ -4,7 +4,7 @@ import 'package:nextuse/HomePage/homepage.dart';
 import 'package:nextuse/HomePage/home_content.dart';
 import 'Widgets/button_widget.dart';
 import 'Widgets/textfield_widget.dart';
-import 'package:nextuse/Colors/color.dart';
+import 'package:nextuse/Core/Constants/Colors/color.dart';
 class Login extends StatefulWidget {
   const Login({super.key});
 
@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Background().mainbg, // light beige background
+      backgroundColor: Background.mainbg, // light beige background
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
@@ -32,14 +32,14 @@ class _LoginState extends State<Login> {
                 width: 90,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Background().containbg,
+                  color: Background.containbg,
                   boxShadow: [
                     BoxShadow(color: Colors.black.withOpacity(0.1),
                       blurRadius: 15,offset: const Offset(0, 8),
                     )
                   ],
                 ),
-                child: Icon(Icons.recycling, size: 40, color: ButtonCol().btnIcon,
+                child: Icon(Icons.recycling, size: 40, color: ButtonCol.btnIcon,
                 ),
               ),
               
@@ -53,7 +53,7 @@ class _LoginState extends State<Login> {
 
                       children:[
                         TextSpan(
-                          text:"Use", style: TextStyle(color:TextCol().gentext,fontSize: 32,fontWeight: FontWeight.bold,),
+                          text:"Use", style: TextStyle(color:TextCol.gentext,fontSize: 32,fontWeight: FontWeight.bold,),
                         )
                       ]),
                       
@@ -99,10 +99,10 @@ class _LoginState extends State<Login> {
                   const SizedBox(height: 10),
               
                   // Login Button
-                 PrimaryButton(text: "Log In", colors: ButtonCol().mybtn,
+                 PrimaryButton(text: "Log In", colors: ButtonCol.mybtn,
                  onPressed: () {
                    Navigator.push(context,
-                   MaterialPageRoute(builder: (_)=> Homepage()));
+                   MaterialPageRoute(builder: (_)=> HomePage()));
                  },),
             
                   const SizedBox(height:20),

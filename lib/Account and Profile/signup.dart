@@ -3,7 +3,8 @@ import 'package:nextuse/Account%20and%20Profile/login.dart';
 //import 'Widgets/container_widget.dart';
 import 'Widgets/textfield_widget.dart';
 import 'Widgets/button_widget.dart';
-import '../HomePage/item_widget/user_homepage.dart';
+import '../HomePage/homepage.dart';
+import '../HomePage/home_content.dart';
 import 'package:nextuse/Colors/color.dart';
 import 'Widgets/role_widget.dart';
 
@@ -149,7 +150,7 @@ class _SignupState extends State<Signup> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (_) => UserHomepage()),
+                          MaterialPageRoute(builder: (_) => Homepage()),
                         );
                       },
                     ), //<= To Homepage

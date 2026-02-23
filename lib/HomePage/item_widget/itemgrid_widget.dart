@@ -16,21 +16,22 @@ class ItemCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.tabUnselected,
         borderRadius: BorderRadius.circular(16),
+        border: BoxBorder.all(color: Colors.black)
       ),
       child: Column(
         children: [
           Expanded(
             child: Stack(
               children: [
-                Center(
+                Center(  //===> where the image goes
                   child: Icon(
                     Icons.recycling,
-                    size: 40,
+                    size: 30,
                     color: AppColors.textPrimary,
                   ),
                 ),
                 Positioned(
-                  top: 6,
+                  top: 4,
                   right: 6,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -50,7 +51,7 @@ class ItemCard extends StatelessWidget {
           ),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.all(12),
             decoration: const BoxDecoration(
               color: AppColors.container,
               borderRadius: BorderRadius.vertical(

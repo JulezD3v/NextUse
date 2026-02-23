@@ -1,10 +1,10 @@
-import'package:flutter/material.dart';
-import'package:nextuse/Colors/color.dart';
-class PrimaryButton extends StatelessWidget {
-  final String text;
-  final VoidCallback? onPressed;
-  final Color colors;
 
+import'package:flutter/material.dart';
+//import'package:nextuse/Colors/color.dart';
+class PrimaryButton extends StatelessWidget{
+final String text;
+final Color colors;
+final VoidCallback? onPressed;
   const PrimaryButton({
     super.key,
     required this.text,

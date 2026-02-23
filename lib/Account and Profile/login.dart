@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/HomePage/item_widget/user_homepage.dart';
+import 'package:nextuse/HomePage/homepage.dart';
+import 'package:nextuse/HomePage/home_content.dart';
 import 'Widgets/button_widget.dart';
 import 'Widgets/textfield_widget.dart';
 import 'package:nextuse/Colors/color.dart';
@@ -101,7 +102,7 @@ class _LoginState extends State<Login> {
                  PrimaryButton(text: "Log In", colors: ButtonCol().mybtn,
                  onPressed: () {
                    Navigator.push(context,
-                   MaterialPageRoute(builder: (_)=> UserHomepage()));
+                   MaterialPageRoute(builder: (_)=> Homepage()));
                  },),
             
                   const SizedBox(height:20),

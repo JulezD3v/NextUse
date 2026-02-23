@@ -14,7 +14,7 @@ class ItemsGrid extends StatelessWidget {
         mainAxisSpacing: 10,
         childAspectRatio: 0.8,
       ),
-      itemBuilder: (context, index) {
+      itemBuilder: (context, index) { //==> will be changed
         return const ItemCard(
           title: "1L PET Bottle",
           count: 36,

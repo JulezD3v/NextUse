@@ -27,7 +27,7 @@ class CategoryTabs extends StatelessWidget {
             onTap: () => onTap(index),
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              margin: const EdgeInsets.only(right: 8),
+              margin: const EdgeInsets.only(right: 0),
               transform: Matrix4.translationValues(
                 0,
                 isSelected ? 0 : 6, // unselected pushed down

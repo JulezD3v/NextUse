@@ -1,0 +1,38 @@
+  const SizedBox(height: 24),
+
+          ReminderCard(
+            message: "Your next pickup is scheduled for Saturday 14 March",
+            height: 130, // holes auto-scale with height
+            onViewDetails: () {},
+            onReschedule: () {},
+          ),
+
+          const SizedBox(height: 20),
+          QuickActionsCard(
+            height: 150,
+            actions: [
+              QuickActionItem(
+                icon: Icons.add_circle_outline,
+                label: "Add to\ninventory",
+                onTap: () {},
+              ),
+              QuickActionItem(
+                icon: Icons.calendar_today_outlined,
+                label: "Schedule\npickup",
+                onTap: () {},
+              ),
+              QuickActionItem(
+                icon: Icons.card_giftcard_outlined,
+                label: "Redeem\nrewards",
+                onTap: () {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+
+          Notebook_card explanation ==> incase I want to add whatever I want to add
+  NotebookCard(
+  title: 'My Schedule',
+  actionLabel: 'View all',
+  child: YourOtherWidget(), // ← swap child, holes + title row stay the same
+)

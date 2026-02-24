@@ -22,4 +22,5 @@ class ButtonCol {
   static const Color mybtn = Color(0xFF8E9A5B);      // primary buttons
   static const Color btnIcon = Color(0xFF5C563E);    // icons inside buttons
   static const Color btnHi = Color(0xFF8E9A5B);      // highlight / selected buttons
+  static const Color newbtn = Color(0xFFA4C8DF);
 }

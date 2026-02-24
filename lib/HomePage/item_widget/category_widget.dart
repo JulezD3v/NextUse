@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/HomePage/color_palette.dart';
 
+// List<String> get _categories =>
+//       widget.categories ?? ["All", "Plastic", "Paper", "Metal", "Glass"];
+// checkout the homecontent file for implementation method
 class CategoryTabs extends StatelessWidget {
   final List<String> categories;
   final int selectedIndex;

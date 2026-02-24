@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import './itemgrid_widget.dart';
 
 class ItemsGrid extends StatelessWidget {
-  const ItemsGrid({super.key});
+  final List<dynamic> items;                // Replace dynamic with your item model
+  final ValueChanged<dynamic>? onItemTap;  // Replace dynamic with your item model
+
+  const ItemsGrid({
+    super.key,
+    required this.items,
+    this.onItemTap,
+  });
 
   @override
   Widget build(BuildContext context) {

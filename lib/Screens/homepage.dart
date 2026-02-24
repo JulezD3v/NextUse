@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nextuse/HomePage/home_content.dart';
+import '/Core/route/bottom_route.dart';
+import 'package:nextuse/Core/widgets/bottom_nav.dart';
 import '../../../Core/Constants/Colors/color.dart';
-import './Data/bloc/home_bloc.dart';
-import './Data/repo/mock_home_repo.dart';
+import '../../../Core/widgets/button.dart';
+import '../../../Core/widgets/segm_cont.dart';
+import '../HomePage/Data/bloc/home_bloc.dart';
+import '../HomePage/Data/repo/mock_home_repo.dart';
 import '../../../HomePage/widgets/action_btn.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+   // This controls which tab is active
+  int _selectedIndex = 0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -15,30 +29,45 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Background.mainbg,
         appBar: AppBar(
-          title: const Text(
-            "NextUse",
-            style: TextStyle(color: TextCol.gentext, fontWeight: FontWeight.bold),
-          ),
-          backgroundColor: Background.containbg,
+          backgroundColor: Colors.transparent, // so the pill's background shows
           elevation: 0,
-          leading: IconButton(
-            icon: const Icon(Icons.menu, color: TextCol.gentext),
-            onPressed: () {},
+          titleSpacing: 0,
+          automaticallyImplyLeading: false, // remove default back arrow
+          title: 
+          Align(
+            alignment: Alignment.centerLeft,
+            child: PageHeader(
+              title: "NextUse", // ← changes per page
+              leadingIcon: Icons.menu, // ← changes per page
+              onLeadingTap: () {}, // open menu/drawer
+            ),
           ),
+          centerTitle: false, // keep it on the left
           actions: [
             IconButton(
-              icon: const Icon(Icons.notifications_outlined, color: TextCol.gentext),
+              icon: const Icon(
+                Icons.notifications_outlined,
+                color: TextCol.gentext,
+              ),
               onPressed: () {},
             ),
+            const SizedBox(width: 8),
           ],
         ),
         body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             if (state is HomeLoading) {
-              return const Center(child: CircularProgressIndicator(color: ButtonCol.mybtn));
+              return const Center(
+                child: CircularProgressIndicator(color: ButtonCol.mybtn),
+              );
             }
             if (state is HomeError) {
-              return Center(child: Text(state.message, style: const TextStyle(color: Colors.red)));
+              return Center(
+                child: Text(
+                  state.message,
+                  style: const TextStyle(color: Colors.red),
+                ),
+              );
             }
             if (state is HomeLoaded) {
               return _buildContent(context, state);
@@ -46,7 +75,12 @@ class HomePage extends StatelessWidget {
             return const SizedBox();
           },
         ),
-        bottomNavigationBar: _buildBottomNav(),
+        bottomNavigationBar: CustomNavBar(
+        selectedIndex: 1,
+        onTap: (index) {
+          navigate(context, index);
+        },
+      ),
       ),
     );
   }
@@ -90,7 +124,9 @@ class HomePage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 24),
+          
 
+          const SizedBox(height: 20,),
           // My Highlights Card
           Card(
             color: Background.containbg,
@@ -145,25 +181,6 @@ class HomePage extends StatelessWidget {
           child: Text(label, textAlign: TextAlign.center, style: TextStyle(color: TextCol.gentext, fontSize: 12)),
         ),
       ],
-    );
-  }
-
-  Widget _buildBottomNav() {
-    return BottomNavigationBar(
-      backgroundColor: Background.containbg,
-      selectedItemColor: ButtonCol.mybtn,
-      unselectedItemColor: TextCol.gentext.withOpacity(0.6),
-      type: BottomNavigationBarType.fixed,
-      items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-        BottomNavigationBarItem(icon: Icon(Icons.inventory_2_outlined), label: "Inventory"),
-        BottomNavigationBarItem(icon: Icon(Icons.local_shipping_outlined), label: "Pickup"),
-        BottomNavigationBarItem(icon: Icon(Icons.account_balance_wallet_outlined), label: "Wallet"),
-      ],
-      currentIndex: 0,
-      onTap: (index) {
-        // TODO: GoRouter later
-      },
     );
   }
 }

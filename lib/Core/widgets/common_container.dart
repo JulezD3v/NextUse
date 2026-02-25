@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//Normal box
 class HighlightCard extends StatelessWidget {
   final Widget? child;
   final Color? color;
@@ -27,6 +27,7 @@ class HighlightCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: color ?? const Color(0xFFDCE8CF),
         borderRadius: borderRadius ?? BorderRadius.circular(16),
+        border: Border.all(width: 1),
       ),
       child: child,
     );

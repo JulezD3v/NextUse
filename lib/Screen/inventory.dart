@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nextuse/Core/widgets/common_container.dart';
+import 'package:nextuse/Core/widgets/segm_cont.dart';
+import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
 //import 'package:nextuse/HomePage/home_content.dart';
 import '/Core/route/bottom_route.dart';
 import '../../../Core/Constants/Colors/color.dart';
@@ -10,18 +13,19 @@ import '../../../Core/widgets/bottom_nav.dart';
 import '../HomePage/widgets/notebook_card.dart';
 import '../HomePage/Data/bloc/home_bloc.dart';
 import '../HomePage/Data/repo/mock_home_repo.dart';
-//import '../../../HomePage/widgets/action_btn.dart';
+import '../../../HomePage/exp_widgets/sectionCard.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class Inventory extends StatefulWidget {
+  const Inventory({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<Inventory> createState() => _InventoryState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _InventoryState extends State<Inventory> {
    // This controls which tab is active
   //int _selectedIndex = 0;
+  
 
 
   @override
@@ -39,8 +43,8 @@ class _HomePageState extends State<HomePage> {
           Align(
             alignment: Alignment.centerLeft,
             child: PageHeader(
-              title: "NextUse", // ← changes per page
-              leadingIcon: Icons.menu, // ← changes per page
+              title: "Inventory", // ← changes per page
+              leadingIcon: Icons.inventory_outlined, // ← changes per page
               onLeadingTap: () {}, // open menu/drawer
             ),
           ),
@@ -105,7 +109,7 @@ class _HomePageState extends State<HomePage> {
 
           const SizedBox(height: 20),
           QuickActionsCard(
-            height: 150,
+            height: 130,
             actions: [
               QuickActionItem(
                 icon: Icons.add_circle_outline,
@@ -142,7 +146,80 @@ class _HomePageState extends State<HomePage> {
               onViewWallet: () {},
             ),
           ),
-        ], // children ending
+
+          const SizedBox(height: 20),
+
+          // With your own child
+          TabContainerCard(
+            // Checkout the exp widgets
+            primaryTabText: 'Add Items',
+            secondaryTabText: 'Step 1 of 3',
+            child: Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                children: [
+                  HighlightCard(
+                    width: 305.08,
+                    height: 95,
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Estimated Value",
+                            style: TextStyle(
+                              color: Color(0xFF655D3E),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+
+                        Row(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "9,350",
+                                style: TextStyle(
+                                  color: Color(0xFF7F903C),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 30,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(width: 4),
+                            Text(
+                              "EcoPoints",
+                              style: TextStyle(
+                                color: Color(0xFF7F903C),
+                                fontWeight: FontWeight.w200,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                       
+
+                      ],
+                    ),
+                  ),
+                   const SizedBox(height: 20),
+                       Expanded(
+                         child: ItemsGrid(
+                             items: [
+                               GridItem(title: 'Plastics', count: 5, icon: Icons.water_drop),
+                               GridItem(title: 'Paper',    count: 3, icon: Icons.description),
+                               GridItem(title: 'Metals',   count: 10, icon: Icons.hardware),
+                               GridItem(title: 'Glass',    count: 2, icon: Icons.wine_bar),
+                             ],
+                           ),
+                       ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

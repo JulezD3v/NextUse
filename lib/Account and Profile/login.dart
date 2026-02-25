@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/Screens/homepage.dart';
+import 'package:nextuse/Screen/homepage.dart';
 import 'package:nextuse/HomePage/home_content.dart';
 import 'Widgets/button_widget.dart';
 import 'Widgets/textfield_widget.dart';

@@ -81,12 +81,12 @@ class _HomeContentState extends State<HomeContent> {
               bottom: Radius.circular(20),
             ),
           ),
-          child: isLoading
-              ? const Center(child: CircularProgressIndicator())
-              : ItemsGrid(
-                  items: items,
-                  onItemTap: widget.onItemTap,
-                ),
+          // child: isLoading
+          //     ? const Center(child: CircularProgressIndicator())
+          //     : ItemsGrid(
+           //       items:items,
+          //         onItemTap: widget.onItemTap,
+          //       ),
         ),
       ],
     );

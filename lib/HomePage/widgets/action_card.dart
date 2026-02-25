@@ -42,16 +42,20 @@ class QuickActionsCard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
+
         // NAVBAR
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
-            color: navbarColor ?? const Color(0xFF7FA8C9),
+            color: navbarColor ??  Color(0xFFCBDEEE),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(14),
               topRight: Radius.circular(14),
             ),
-            
+           border: Border.all(
+          color: Colors.black,
+          width: 1,
+        ),
           ),
           child: Text(title,
             style: TextStyle(
@@ -65,13 +69,17 @@ class QuickActionsCard extends StatelessWidget {
         // BODY
         Container(
           height: height,
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             color: Color(0xFFCBDEEE),
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(16),
               bottomRight: Radius.circular(16),
               topRight: Radius.circular(16),
             ),
+            border: Border.all(
+          color: Colors.black,
+          width: 1,
+        ),
           ),
           // ↓ use your own child, or fall back to default action buttons
           child:

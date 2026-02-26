@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextuse/Core/widgets/common_container.dart';
 import 'package:nextuse/Core/widgets/segm_cont.dart';
 import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
-//import 'package:nextuse/HomePage/home_content.dart';
+import 'package:nextuse/HomePage/home_content.dart';
+import 'package:nextuse/HomePage/item_widget/itemgrid_widget.dart';
 import '/Core/route/bottom_route.dart';
 import '../../../Core/Constants/Colors/color.dart';
 import '../../../Core/widgets/button.dart';
@@ -11,9 +12,6 @@ import '../../../Core/widgets/notebook.dart';
 import '../HomePage/widgets/action_card.dart';
 import '../../../Core/widgets/bottom_nav.dart';
 import '../HomePage/widgets/notebook_card.dart';
-import '../HomePage/Data/bloc/home_bloc.dart';
-import '../HomePage/Data/repo/mock_home_repo.dart';
-import '../../../HomePage/exp_widgets/sectionCard.dart';
 
 class Inventory extends StatefulWidget {
   const Inventory({super.key});
@@ -23,203 +21,170 @@ class Inventory extends StatefulWidget {
 }
 
 class _InventoryState extends State<Inventory> {
-   // This controls which tab is active
+  // This controls which tab is active
   //int _selectedIndex = 0;
-  
-
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeBloc(MockHomeRepository())..add(FetchHomeHighlights()),
-      child: Scaffold(
-        backgroundColor: Background.mainbg,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent, // so the pill's background shows
-          elevation: 0,
-          titleSpacing: 0,
-          automaticallyImplyLeading: false, // remove default back arrow
-          title: 
-          Align(
-            alignment: Alignment.centerLeft,
-            child: PageHeader(
-              title: "Inventory", // ← changes per page
-              leadingIcon: Icons.inventory_outlined, // ← changes per page
-              onLeadingTap: () {}, // open menu/drawer
-            ),
-          ),
-          centerTitle: false, // keep it on the left
-          actions: [
-            IconButton(
-              icon: const Icon(
-                Icons.notifications_outlined,
-                color: TextCol.gentext,
-              ),
-              onPressed: () {},
-            ),
-            const SizedBox(width: 8),
-          ],
-        ),
-        body: BlocBuilder<HomeBloc, HomeState>(
-          builder: (context, state) {
-            if (state is HomeLoading) {
-              return const Center(
-                child: CircularProgressIndicator(color: ButtonCol.mybtn),
-              );
-            }
-            if (state is HomeError) {
-              return Center(
-                child: Text(
-                  state.message,
-                  style: const TextStyle(color: Colors.red),
-                ),
-              );
-            }
-            if (state is HomeLoaded) {
-              return _buildContent(context, state);
-            }
-            return const SizedBox();
-          },
-        ),
-        bottomNavigationBar: CustomNavBar(
-        selectedIndex: 1,
+    return Scaffold(
+      backgroundColor: Background.mainbg,
+      bottomNavigationBar: CustomNavBar(
+        selectedIndex: 0,
         onTap: (index) {
           navigate(context, index);
         },
       ),
-      ),
-    );
-  }
+      appBar: AppBar(
+        backgroundColor: Colors.transparent, // so the pill's background shows
+        elevation: 0,
+        titleSpacing: 0,
+        automaticallyImplyLeading: false, // remove default back arrow
 
-  Widget _buildContent(BuildContext context, HomeLoaded state) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ReminderCard(
-            message: "Your next pickup is scheduled for Saturday 14 March",
-            height: 130, // holes auto-scale with height
-            onViewDetails: () {},
-            onReschedule: () {},
+        title: Align(
+          alignment: Alignment.centerLeft,
+          child: PageHeader(
+            title: "Inventory", // ← changes per page
+            leadingIcon: Icons.inventory_outlined, // ← changes per page
+            onLeadingTap: () {}, // open menu/drawer
           ),
-
-          const SizedBox(height: 24,),
-          // Quick Actions
-
-          const SizedBox(height: 20),
-          QuickActionsCard(
-            height: 130,
-            actions: [
-              QuickActionItem(
-                icon: Icons.add_circle_outline,
-                label: "Add to\ninventory",
-                onTap: () {},
-              ),
-              QuickActionItem(
-                icon: Icons.calendar_today_outlined,
-                label: "Schedule\npickup",
-                onTap: () {},
-              ),
-              QuickActionItem(
-                icon: Icons.card_giftcard_outlined,
-                label: "Redeem\nrewards",
-                onTap: () {},
-              ),
-            ],
-          ),
-
-          const SizedBox(height: 20),
-
-          // My Highlights Card
-          NotebookCard(
-            title: 'My Highlights',
-            actionLabel: 'See more',
-            onActionTap: () {},
-            height: 450,
-            child: MyHighlightsContent(
-              earningsAmount: state.highlight.earnings.toStringAsFixed(0),
-              plasticKg: '${state.highlight.totalPlasticKg} kg',
-              binCount: state
-                  .highlight
-                  .cansRecycled, // ← drives bin icons automatically
-              onViewWallet: () {},
+        ),
+        centerTitle: false, // keep it on the left
+        actions: [
+          IconButton(
+            icon: const Icon(
+              Icons.notifications_outlined,
+              color: TextCol.gentext,
             ),
+            onPressed: () {},
           ),
+          const SizedBox(width: 8),
+        ],
+      ),
+     
 
-          const SizedBox(height: 20),
-
-          // With your own child
-          TabContainerCard(
-            // Checkout the exp widgets
-            primaryTabText: 'Add Items',
-            secondaryTabText: 'Step 1 of 3',
-            child: Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                children: [
-                  HighlightCard(
-                    width: 305.08,
-                    height: 95,
-                    child: Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Estimated Value",
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(top:10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(
+                  left: 15,
+                  right: 15),
+                child: NotebookCard(
+                  title: 'Inventory Value',
+                  height: 170,
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "9,350",
+                              style: TextStyle(
+                                color: Color(0xFF7F903C),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            "EcoPoints",
                             style: TextStyle(
-                              color: Color(0xFF655D3E),
-                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF7F903C),
+                              fontWeight: FontWeight.w200,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "-7,055",
+                              style: TextStyle(
+                                color: Color(0xFF7F903C),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            "EP (Upcoming Pickup)",
+                            style: TextStyle(
+                              color: Color(0xFF7F903C),
+                              fontWeight: FontWeight.w300,
                               fontSize: 14,
                             ),
                           ),
+                        ],
+                      ),
+                      const SizedBox(height: 8,),
+                      Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        "View details",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF6B8F5E),
+                          decoration: TextDecoration.underline,
                         ),
-
-                        Row(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "9,350",
-                                style: TextStyle(
-                                  color: Color(0xFF7F903C),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              "EcoPoints",
-                              style: TextStyle(
-                                color: Color(0xFF7F903C),
-                                fontWeight: FontWeight.w200,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                       
-
-                      ],
+                      ),
                     ),
+                    const SizedBox(width: 12),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Text(
+                        "Reschedule",
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Color(0xFF6B8F5E),
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    ),
+                  ],
+                      ),
+                    ],
                   ),
-                   const SizedBox(height: 20),
-                       Expanded(
-                         child: ItemsGrid(
-                             items: [
-                               GridItem(title: 'Plastics', count: 5, icon: Icons.water_drop),
-                               GridItem(title: 'Paper',    count: 3, icon: Icons.description),
-                               GridItem(title: 'Metals',   count: 10, icon: Icons.hardware),
-                               GridItem(title: 'Glass',    count: 2, icon: Icons.wine_bar),
-                             ],
-                           ),
-                       ),
-                ],
+                ),
               ),
-            ),
+        
+              const SizedBox(height: 20),
+        
+              Padding(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: Expanded(
+                  child: HomeContent(
+                    gridHeight: 250,
+                    items: [
+                      GridItem(title: 'Plastics', count: 5, icon: Icons.water_drop),
+                      GridItem(title: 'Paper', count: 3, icon: Icons.description),
+                      GridItem(title: 'Metals', count: 10, icon: Icons.hardware),
+                      GridItem(title: 'Glass', count: 2, icon: Icons.wine_bar),
+                    ],
+                    itemBuilder: (item) => ItemCard(
+                      title: item.title,
+                      count: item.count,
+                      icon: item.icon,
+                    ),
+                    onItemTap: (item) => print(item.title),
+                  ),
+                ),
+              ),
+        
+              
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

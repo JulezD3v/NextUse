@@ -6,11 +6,13 @@ import 'package:nextuse/Core/Constants/Colors/color.dart';
 
 class HomeContent extends StatefulWidget {
   final List<String>? categories;
+  final List<GridItem>? items;
   final double gridHeight;
   final ValueChanged<int>? onCategoryTap;
-  final ValueChanged<dynamic>? onItemTap;
+  final ValueChanged<GridItem>? onItemTap;
 
   const HomeContent({
+    this.items,
     super.key,
     this.categories,
     this.gridHeight = 300,
@@ -25,7 +27,7 @@ class HomeContent extends StatefulWidget {
 class _HomeContentState extends State<HomeContent> {
   int selectedIndex = 0;
   bool isLoading = true;
-  List<dynamic> items = [];
+  List<GridItem> items = [];
 
   List<String> get _categories =>
       widget.categories ?? ["All", "Plastic", "Paper", "Metal", "Glass"];
@@ -40,7 +42,7 @@ class _HomeContentState extends State<HomeContent> {
     setState(() => isLoading = true);
     try {
       await Future.delayed(const Duration(milliseconds: 500)); // replace with real call
-      final result = <dynamic>[];
+      final result = <GridItem>[];
       if (mounted) setState(() { items = result; isLoading = false; });
     } catch (e) {
       if (mounted) setState(() => isLoading = false);
@@ -81,12 +83,12 @@ class _HomeContentState extends State<HomeContent> {
               bottom: Radius.circular(20),
             ),
           ),
-          // child: isLoading
-          //     ? const Center(child: CircularProgressIndicator())
-          //     : ItemsGrid(
-           //       items:items,
-          //         onItemTap: widget.onItemTap,
-          //       ),
+          child: isLoading
+              ? const Center(child: CircularProgressIndicator())
+              : ItemsGrid(
+                 items:items,
+                  onItemTap: widget.onItemTap,
+                ),
         ),
       ],
     );

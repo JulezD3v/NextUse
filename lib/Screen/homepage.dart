@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   HighlightCard(
                     width: 305.08,
-                    height: 95,
+                    height: 96,
                     child: Column(
                       children: [
                         Align(
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                               color: Color(0xFF655D3E),
                               fontWeight: FontWeight.bold,
-                              fontSize: 14,
+                              fontSize: 16,
                             ),
                           ),
                         ),

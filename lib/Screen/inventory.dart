@@ -159,29 +159,15 @@ class _InventoryState extends State<Inventory> {
               ),
         
               const SizedBox(height: 20),
-        
+
               Padding(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                child: Expanded(
-                  child: HomeContent(
-                    gridHeight: 250,
-                    items: [
-                      GridItem(title: 'Plastics', count: 5, icon: Icons.water_drop),
-                      GridItem(title: 'Paper', count: 3, icon: Icons.description),
-                      GridItem(title: 'Metals', count: 10, icon: Icons.hardware),
-                      GridItem(title: 'Glass', count: 2, icon: Icons.wine_bar),
-                    ],
-                    itemBuilder: (item) => ItemCard(
-                      title: item.title,
-                      count: item.count,
-                      icon: item.icon,
-                    ),
-                    onItemTap: (item) => print(item.title),
-                  ),
+                child: HomeContent(
+                  gridHeight: 250,
+                  onItemTap: (item) => print("Tapped: ${item.title}"),
+                  // ← NO items list needed anymore!
                 ),
               ),
-        
-              
             ],
           ),
         ),

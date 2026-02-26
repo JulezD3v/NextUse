@@ -5,11 +5,15 @@ class GridItem {
   final String title;
   final int count;
   final IconData? icon;
+  final String category;
+  final String? imagePath;
 
   const GridItem({
     required this.title,
     required this.count,
     this.icon,
+    required this.category,
+    this.imagePath,
   });
 }
 

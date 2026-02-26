@@ -24,7 +24,7 @@ class Onboarding extends StatelessWidget {
                 
             
                  Image.asset(
-                'assets/Logo/logo_bg.png',
+                'assets/Images/NextUse Logo/Large Logo.png',
                 height: 300,),
             
                 PrimaryButton(text: "Login", colors: ButtonCol.mybtn, 

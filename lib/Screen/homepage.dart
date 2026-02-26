@@ -227,11 +227,13 @@ class _HomePageState extends State<HomePage> {
                        Expanded(
                          child: ItemsGrid(
                              items: [
-                               GridItem(title: 'Plastics', count: 5, icon: Icons.water_drop),
-                               GridItem(title: 'Paper',    count: 3, icon: Icons.description),
-                               GridItem(title: 'Metals',   count: 10, icon: Icons.hardware),
-                               GridItem(title: 'Glass',    count: 2, icon: Icons.wine_bar),
-                             ],
+                              GridItem(title: "1L PET Bottle", count: 36, icon: Icons.local_drink, category: "Plastic", ),
+    GridItem(title: "500ml PET Bot...", count: 14, icon: Icons.local_drink, category: "Plastic",),
+    GridItem(title: "2L HDPE Bottle", count: 3, icon: Icons.local_drink, category: "Plastic"),
+    GridItem(title: "2L PET Bottle", count: 11, icon: Icons.local_drink, category: "Plastic"),
+    GridItem(title: "330ml PET Bot...", count: 14, icon: Icons.local_drink, category: "Plastic"),
+    // Paper
+     ],
                            ),
                        ),
                 ],

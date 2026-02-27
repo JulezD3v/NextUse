@@ -129,6 +129,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 20),
           QuickActionsCard(
             height: 130,
+            navbarTextColor: TextCol.gentext,
             actions: [
               QuickActionItem(
                 icon: Icons.add_circle_outline,

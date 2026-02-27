@@ -85,7 +85,7 @@ class TabContainerCard extends StatelessWidget {
             padding: const EdgeInsets.only(left: 10),
             child: Container(
               width: 329.76,
-              height: 337.3,
+              height: 300.3,
               decoration: BoxDecoration(
                 color: Color(0xFFEDE8D4),
                 borderRadius: BorderRadius.only(

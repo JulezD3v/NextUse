@@ -54,8 +54,8 @@ class CustomNavBar extends StatelessWidget {
           ),
           _buildNavItem(
             index: 3,
-            icon: Icons.account_balance_wallet_outlined,
-            label: "Wallet",
+            icon: Icons.card_giftcard_outlined,
+            label: "Reward",
           ),
         ],
       ),

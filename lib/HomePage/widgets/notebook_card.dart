@@ -168,7 +168,7 @@ class MyHighlightsContent extends StatelessWidget {
 
   const MyHighlightsContent({
     super.key,
-    this.highlightMessage = 'You are the ',
+    this.highlightMessage = 'You are the' ,
     this.highlightBoldPart = 'highest resident earner',
     this.earningsPeriod = "February's Earnings",
     this.earningsAmount = '31,680',

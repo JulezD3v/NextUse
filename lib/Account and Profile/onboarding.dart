@@ -36,7 +36,7 @@ class Onboarding extends StatelessWidget {
             
                 const SizedBox(height: 20,),
             
-                PrimaryButton(text: "Log In", colors: ButtonCol.mybtn,
+                PrimaryButton(text: "Sign Up", colors: ButtonCol.mybtn,
                  onPressed: () {
                    Navigator.push(context,
                    MaterialPageRoute(builder: (_)=> Signup()));

@@ -27,19 +27,21 @@ class Onboarding extends StatelessWidget {
                 'assets/Images/NextUse Logo/Large Logo.png',
                 height: 300,),
             
-                PrimaryButton(text: "Login", colors: ButtonCol.mybtn, 
-                onPressed:(){
+                PrimaryButton(text: "Log In", colors: ButtonCol.mybtn,
+                 onPressed: () {
                    Navigator.push(context,
-                MaterialPageRoute(builder: (_)=> Login()));} ,
-                ),
+                   MaterialPageRoute(builder: (_)=> Login()));
+                 },
+                 txtcolors: TextCol.gentext,),
             
                 const SizedBox(height: 20,),
             
-                PrimaryButton(text: "SignUp", colors: ButtonCol.mybtn, 
-                onPressed:(){
+                PrimaryButton(text: "Log In", colors: ButtonCol.mybtn,
+                 onPressed: () {
                    Navigator.push(context,
-                MaterialPageRoute(builder: (_)=> Signup()));},
-                ),
+                   MaterialPageRoute(builder: (_)=> Signup()));
+                 },
+                 txtcolors: TextCol.gentext,),
             
                 const SizedBox(height: 30,),
             

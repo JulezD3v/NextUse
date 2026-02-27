@@ -103,7 +103,8 @@ class _LoginState extends State<Login> {
                  onPressed: () {
                    Navigator.push(context,
                    MaterialPageRoute(builder: (_)=> HomePage()));
-                 },),
+                 },
+                 txtcolors: TextCol.gentext,),
             
                   const SizedBox(height:20),
               

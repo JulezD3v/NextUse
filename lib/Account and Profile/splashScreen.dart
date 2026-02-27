@@ -93,7 +93,7 @@ Future<void> _initializeApp() async {
               //  size: 150,
               //  color: Colors.green[900],),
             Image.asset(
-              'assets/Logo/logo_bg.png',
+              'assets/Images/NextUse Logo/Large Logo.png',
               height: 300,
             ),
 

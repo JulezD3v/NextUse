@@ -9,6 +9,7 @@ class HomeContent extends StatefulWidget {
   final double gridHeight;
   final ValueChanged<int>? onCategoryTap;
   final ValueChanged<GridItem>? onItemTap;
+  final Widget? mychild;
 
   const HomeContent({
     super.key,
@@ -16,6 +17,7 @@ class HomeContent extends StatefulWidget {
     this.gridHeight = 300,
     this.onCategoryTap,
     this.onItemTap,
+    this.mychild,
   });
 
   @override
@@ -102,7 +104,9 @@ class _HomeContentState extends State<HomeContent> {
                   onItemTap: widget.onItemTap,
                 ),
         ),
+        
       ],
+      
     );
   }
 }

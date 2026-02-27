@@ -34,7 +34,7 @@ class AuthTextField extends StatelessWidget {
             prefixIcon: Icon(icon, color:ButtonCol.btnIcon),
             hintText: hint,
             filled: true,
-            fillColor: TextCol.txtfield,
+            fillColor: const Color.fromARGB(255, 235, 232, 224),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
               borderSide: BorderSide.none,

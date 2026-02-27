@@ -153,6 +153,7 @@ class _SignupState extends State<Signup> {
                           MaterialPageRoute(builder: (_) => HomePage()),
                         );
                       },
+                      txtcolors: TextCol.gentext,
                     ), //<= To Homepage
                   ],
                 ),

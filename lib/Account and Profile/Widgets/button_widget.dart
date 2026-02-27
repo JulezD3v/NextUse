@@ -3,11 +3,13 @@ import'package:flutter/material.dart';
 //import'package:nextuse/Colors/color.dart';
 class PrimaryButton extends StatelessWidget{
 final String text;
+final Color txtcolors;
 final Color colors;
 final VoidCallback? onPressed;
   const PrimaryButton({
     super.key,
     required this.text,
+    required this.txtcolors,
     required this.colors,
     this.onPressed,
   });
@@ -21,20 +23,15 @@ final VoidCallback? onPressed;
         height: 50,
         decoration: ShapeDecoration(
           color: colors,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: TextCol().gentext,
-          //     blurRadius: 5,
-          //     offset: const Offset(0, 6),
-          //   )
-          // ],
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          
         ),
+        
         child: Center(
           child: Text(
             text,
             style: TextStyle(
-              color:  Color(0xFF6E7F3F),
+              color:  txtcolors,
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),

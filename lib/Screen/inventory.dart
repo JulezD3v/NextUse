@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nextuse/Account%20and%20Profile/Widgets/button_widget.dart';
 import 'package:nextuse/Core/widgets/common_container.dart';
 import 'package:nextuse/Core/widgets/segm_cont.dart';
 import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
@@ -163,11 +164,48 @@ class _InventoryState extends State<Inventory> {
               Padding(
                 padding: EdgeInsets.only(left: 15, right: 15),
                 child: HomeContent(
-                  gridHeight: 250,
+                  gridHeight: 300,
                   onItemTap: (item) => print("Tapped: ${item.title}"),
                   // ← NO items list needed anymore!
-                ),
+                  
+                ), 
               ),
+              const SizedBox(height: 25,),
+
+              Padding(
+                padding: const EdgeInsets.only(right: 15, left: 15),
+                child: PrimaryButton(text:"Log Item", 
+                colors: const Color.fromARGB(255, 141, 148, 109),
+                txtcolors: TextCol.gentext,),
+              ),
+               const SizedBox(height:15),
+
+               Padding(
+                 padding: const EdgeInsets.only(right: 15, left: 15),
+                 child: GestureDetector(
+                       onTap:(){},
+                       child: Container(
+                         width: double.infinity,
+                         height: 50,
+                         decoration: ShapeDecoration(
+                           color: ButtonCol.newbtn,
+                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                           
+                         ),
+                         
+                         child: Center(
+                           child: Text(
+                             "View Recyclables library",
+                             style: TextStyle(
+                               color:  TextCol.gentext,
+                               fontSize: 16,
+                               fontWeight: FontWeight.w600,
+                             ),
+                           ),
+                         ),
+                       ),
+                     ),
+               ),
             ],
           ),
         ),

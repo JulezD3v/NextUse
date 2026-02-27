@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
-import'package:nextuse/Account and Profile/splashScreen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nextuse/Account%20and%20Profile/login.dart';    
+import 'package:nextuse/Account%20and%20Profile/signup.dart';   
+import 'package:nextuse/Screen/homepage.dart';                 
+import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
+import 'package:nextuse/Features/auth/data/auth_repo.dart';  
+       
+
 void main() {
   runApp(const MyApp());
 }
@@ -7,15 +14,31 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'NextUse',
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-      theme: ThemeData(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => AuthBloc(
+            AuthRepository(), // this must point to your auth_repository.dart
+          ),
+        ),
+
+      ],
+      child: MaterialApp(
+        title: 'NextUse',
+        debugShowCheckedModeBanner: false,
+       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      ),
+
+        // Named routes - make sure all pages are accessible
+        initialRoute: '/login',
+        routes: {
+          '/login': (context) => const Login(),
+          '/signup': (context) => const Signup(),
+          '/home': (context) => const HomePage(),  
+        },
       ),
     );
   }

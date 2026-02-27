@@ -6,13 +6,15 @@ class AuthTextField extends StatelessWidget {
   final String hint;
   final IconData icon;
   final bool obscure;
-
+  final TextEditingController? controller;
+  
   const AuthTextField({
     super.key,
     required this.label,
     required this.hint,
     required this.icon,
     this.obscure = false,
+    this.controller,
   });
 
   @override
@@ -29,6 +31,7 @@ class AuthTextField extends StatelessWidget {
         const SizedBox(height: 8),
 
         TextField(
+          controller: controller,
           obscureText: obscure,
           decoration: InputDecoration(
             prefixIcon: Icon(icon, color:ButtonCol.btnIcon),

@@ -1,5 +1,5 @@
-# NextUse ♻️
-
+# NextUse ♻️()
+still under development
 **NextUse** is a Flutter-based mobile application designed to **digitize and streamline waste collection management**.  
 The platform connects **households**, **companies**, and **pickup agents** through a structured request and tracking system — promoting efficiency, transparency, and environmental accountability.
 

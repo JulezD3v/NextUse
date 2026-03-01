@@ -1,9 +1,9 @@
 import'package:flutter/material.dart';
-import 'package:nextuse/Screen/homepage.dart';
-import 'package:nextuse/Screen/inventory.dart';
-import 'package:nextuse/Screen/pickup.dart';
-import 'package:nextuse/Screen/reward.dart';
-import 'package:nextuse/Screen/wallet.dart';
+import 'package:nextuse/MainScreens/homepage.dart';
+import 'package:nextuse/MainScreens/inventory.dart';
+import 'package:nextuse/MainScreens/pickup.dart';
+import 'package:nextuse/MainScreens/reward.dart';
+import 'package:nextuse/MainScreens/wallet.dart';
 
 void navigate(BuildContext context, int index) {
   switch (index) {

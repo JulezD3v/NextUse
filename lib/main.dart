@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextuse/Account%20and%20Profile/login.dart';    
 import 'package:nextuse/Account%20and%20Profile/signup.dart';   
-import 'package:nextuse/Screen/homepage.dart';                 
+import 'package:nextuse/MainScreens/homepage.dart';                 
 import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
 import 'package:nextuse/Features/auth/data/auth_repo.dart';  
        

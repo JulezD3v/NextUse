@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/Core/Constants/Colors/color.dart';
-import 'Widgets/button_widget.dart';
-import './login.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
+import '../Account and Profile/Widgets/button_widget.dart';
+import '../Account and Profile/login.dart';
 
 class Onboarding extends StatelessWidget {
   const Onboarding({super.key});

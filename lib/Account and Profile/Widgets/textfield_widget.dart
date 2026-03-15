@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Core/Constants/Colors/color.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 
 class AuthTextField extends StatelessWidget {
   final String label;

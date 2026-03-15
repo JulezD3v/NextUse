@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/MainScreens/homepage.dart';
-import 'package:nextuse/HomePage/home_content.dart';
+//import 'package:nextuse/MainScreens/homepage.dart';
+//import 'package:nextuse/HomePage/home_content.dart';
 
 import 'Widgets/button_widget.dart';
 import 'Widgets/textfield_widget.dart';
@@ -12,7 +12,7 @@ import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
 import 'package:nextuse/Features/auth/bloc/auth_event.dart';
 import 'package:nextuse/Features/auth/bloc/auth_state.dart';
 
-import 'package:nextuse/Core/Constants/Colors/color.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

@@ -5,7 +5,7 @@ import 'Widgets/textfield_widget.dart';
 import 'Widgets/button_widget.dart';
 import '../MainScreens/homepage.dart';
 import '../HomePage/home_content.dart';
-import 'package:nextuse/Core/Constants/Colors/color.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 import 'Widgets/role_widget.dart';
 
 class Signup extends StatefulWidget {

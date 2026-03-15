@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'item_widget/category_widget.dart';
 import 'item_widget/grid_tile.dart';
 import 'package:nextuse/HomePage/color_palette.dart';
-import 'package:nextuse/Core/Constants/Colors/color.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 
 class HomeContent extends StatefulWidget {
   final List<String>? categories;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import'package:nextuse/Account and Profile/onboarding.dart';
+import'package:nextuse/Onboarding_pages/onboarding.dart';
 import 'dart:async';
 
 class SplashScreen extends StatefulWidget {

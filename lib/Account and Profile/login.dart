@@ -5,7 +5,7 @@ import 'package:nextuse/Account%20and%20Profile/signup.dart';
 //import 'package:nextuse/MainScreens/homepage.dart';
 //import 'package:nextuse/HomePage/home_content.dart';
 
-import 'Widgets/button_widget.dart';
+import 'Widgets/primarybtn.dart';
 import 'Widgets/textfield_widget.dart';
 
 import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';

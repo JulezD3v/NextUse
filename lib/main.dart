@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextuse/Account%20and%20Profile/login.dart';    
-import 'package:nextuse/Account%20and%20Profile/signup.dart';   
+import 'package:nextuse/Account%20and%20Profile/signup.dart';
+import 'package:nextuse/Account%20and%20Profile/splashScreen.dart';   
 import 'package:nextuse/MainScreens/homepage.dart';                 
 import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
-import 'package:nextuse/Features/auth/data/auth_repo.dart';  
+import 'package:nextuse/Features/auth/data/auth_repo.dart';
+import 'package:nextuse/Onboarding_pages/onbd_one.dart';
+import 'package:nextuse/Onboarding_pages/onbd_two.dart';  
        
 
 void main() {
@@ -33,13 +36,17 @@ class MyApp extends StatelessWidget {
       ),
 
         // Named routes - make sure all pages are accessible
-        initialRoute: '/login',
+        initialRoute: '/splashscreen.dart',
         routes: {
+          '/splashscreen': (context) => const SplashScreen(),
+          '/onbd_one': (context) => const OnbdOne(),
+          '/onbd_two': (context) => const OnbdTwo(),
           '/login': (context) => const Login(),
           '/signup': (context) => const Signup(),
-          '/home': (context) => const HomePage(),  
-        },
+          '/home': (context) => const HomePage(), 
+        }
       ),
+
     );
   }
 }

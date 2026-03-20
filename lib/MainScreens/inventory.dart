@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nextuse/Account%20and%20Profile/Widgets/button_widget.dart';
+import 'package:nextuse/Account%20and%20Profile/Widgets/primarybtn.dart';
 import 'package:nextuse/A_Core/widgets/common_container.dart';
 import 'package:nextuse/A_Core/widgets/segm_cont.dart';
 import 'package:nextuse/HomePage/item_widget/grid_tile.dart';

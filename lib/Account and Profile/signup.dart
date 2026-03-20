@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nextuse/Account%20and%20Profile/login.dart';
 //import 'Widgets/container_widget.dart';
 import 'Widgets/textfield_widget.dart';
-import 'Widgets/button_widget.dart';
+import 'Widgets/primarybtn.dart';
 import '../MainScreens/homepage.dart';
 import '../HomePage/home_content.dart';
 import 'package:nextuse/A_Core/Constants/Colors/color.dart';

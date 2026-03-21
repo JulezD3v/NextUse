@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nextuse/Account%20and%20Profile/Widgets/primarybtn.dart';
-import 'package:nextuse/A_Core/widgets/common_container.dart';
-import 'package:nextuse/A_Core/widgets/segm_cont.dart';
-import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
+import 'package:nextuse/account_profile/Widgets/primarybtn.dart';
 import 'package:nextuse/HomePage/home_content.dart';
-import 'package:nextuse/HomePage/item_widget/itemgrid_widget.dart';
 import '../A_Core/route/bottom_route.dart';
 import '../A_Core/Constants/Colors/color.dart';
 import '../A_Core/widgets/button.dart';
-import '../A_Core/widgets/notebook.dart';
-import '../HomePage/widgets/action_card.dart';
 import '../A_Core/widgets/bottom_nav.dart';
 import '../HomePage/widgets/notebook_card.dart';
 

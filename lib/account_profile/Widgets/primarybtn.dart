@@ -21,12 +21,23 @@ final VoidCallback? onPressed;
       child: Container(
         width: double.infinity,
         height: 50,
-        decoration: ShapeDecoration(
-          color: colors,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          
+        decoration: BoxDecoration(
+  color: colors,
+  borderRadius: BorderRadius.circular(25),
+  border: Border.all(
+    color: Colors.black,
+    width: 1,
+  ),
+
+  boxShadow:  [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.2), // shadow color
+          blurRadius: 10, // softness
+          spreadRadius: 1, // how wide it spreads
+          offset: Offset(0, 4), // x, y (downwards shadow)
         ),
-        
+      ],
+),
         child: Center(
           child: Text(
             text,

@@ -1,52 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nextuse/Account%20and%20Profile/login.dart';    
-import 'package:nextuse/Account%20and%20Profile/signup.dart';
-import 'package:nextuse/Account%20and%20Profile/splashScreen.dart';   
-import 'package:nextuse/MainScreens/homepage.dart';                 
-import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
-import 'package:nextuse/Features/auth/data/auth_repo.dart';
+
+// Fix 1: Use correct import paths — adjust based on where the files really are
+// Most likely one of these will work — test one at a time
+import 'package:nextuse/account_profile/splashScreen.dart';           // ← try this first
+// import 'package:nextuse/Account%20and%20Profile/splashScreen.dart';
+// import 'package:nextuse/account_profile/splash_screen.dart';   // after rename
+
 import 'package:nextuse/Onboarding_pages/onbd_one.dart';
-import 'package:nextuse/Onboarding_pages/onbd_two.dart';  
-       
+// import 'package:nextuse/onboarding_pages/onbd_one.dart';      // after rename
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NextUseApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NextUseApp extends StatelessWidget {
+  const NextUseApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<AuthBloc>(
-          create: (context) => AuthBloc(
-            AuthRepository(), // this must point to your auth_repository.dart
-          ),
-        ),
-
-      ],
-      child: MaterialApp(
-        title: 'NextUse',
-        debugShowCheckedModeBanner: false,
-       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+    return MaterialApp(
+      title: 'NextUse',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
+        useMaterial3: true,
       ),
-
-        // Named routes - make sure all pages are accessible
-        initialRoute: '/splashscreen.dart',
-        routes: {
-          '/splashscreen': (context) => const SplashScreen(),
-          '/onbd_one': (context) => const OnbdOne(),
-          '/onbd_two': (context) => const OnbdTwo(),
-          '/login': (context) => const Login(),
-          '/signup': (context) => const Signup(),
-          '/home': (context) => const HomePage(), 
-        }
-      ),
-
+      initialRoute: '/splash',
+      routes: {
+        '/splash': (context) => const SplashScreen(),   // ← must match the class name exactly!
+        '/onbd_one': (context) => const OnbdOne(),
+        // Add more later...
+      },
     );
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nextuse/Account%20and%20Profile/login.dart';
+import 'package:nextuse/account_profile/login.dart';
 //import 'Widgets/container_widget.dart';
 import 'Widgets/textfield_widget.dart';
 import 'Widgets/primarybtn.dart';
@@ -16,8 +16,6 @@ class Signup extends StatefulWidget {
    
 
 }
-
-
 
 class _SignupState extends State<Signup> {
   UserRole? selectedRole;

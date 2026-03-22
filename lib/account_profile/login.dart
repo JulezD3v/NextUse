@@ -1,17 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:nextuse/account_profile/signup.dart';
-//import 'package:nextuse/MainScreens/homepage.dart';
-//import 'package:nextuse/HomePage/home_content.dart';
-
 import 'Widgets/primarybtn.dart';
 import 'Widgets/textfield_widget.dart';
-
-import 'package:nextuse/Features/auth/bloc/auth_bloc.dart';
-import 'package:nextuse/Features/auth/bloc/auth_event.dart';
-import 'package:nextuse/Features/auth/bloc/auth_state.dart';
-
 import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 
 class Login extends StatefulWidget {
@@ -30,26 +20,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Background.mainbg, // light beige background
-      body: BlocConsumer<AuthBloc, AuthState>(
-        listener: (context, state) {
-          if (state is AuthAuthenticated) {
-            Navigator.pushReplacementNamed(context, '/home');
-            // or: Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const HomePage()));
-          } else if (state is AuthFailure) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.error),
-                backgroundColor: Colors.red,
-              ),
-            );
-          }
-        },
-        builder: (context, state) {
-          if (state is AuthLoading) {
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          return SafeArea(
+      body: SafeArea(
             child: SingleChildScrollView(
               child: Center(
                 child: Padding(
@@ -85,24 +56,12 @@ class _LoginState extends State<Login> {
 
                         // App Name
                         RichText(
-                          text: TextSpan(
-                            text: "Next",
-                            style: const TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF6E7F3F),
-                            ),
+                          text: TextSpan(text: "Next",style: 
+                          const TextStyle(fontSize: 32,fontWeight: FontWeight.bold, color: Color(0xFF6E7F3F),),
                             children: [
-                              TextSpan(
-                                text: "Use",
-                                style: TextStyle(
-                                  color: TextCol.gentext,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              )
-                            ],
-                          ),
+                              TextSpan(text: "Use",
+                                style: TextStyle(color: TextCol.gentext,fontSize: 32,fontWeight: FontWeight.bold,),)
+                            ],),
                         ),
 
                         const SizedBox(height: 15),
@@ -155,21 +114,30 @@ class _LoginState extends State<Login> {
                         const SizedBox(height: 10),
 
                         // Login Button – only this onPressed changed
-                        PrimaryButton(
-                          text: "Log In",
-                          colors: ButtonCol.mybtn,
-                          onPressed: () {
-                            if (_formKey.currentState?.validate() ?? true) {
-                              context.read<AuthBloc>().add(
-                                    LoginSubmitted(
-                                      _emailController.text.trim(),
-                                      _passwordController.text.trim(),
-                                    ),
-                                  );
-                            }
-                          },
-                          txtcolors: TextCol.gentext,
-                        ),
+                       PrimaryButton(
+                  text: "Log In",
+                  colors: ButtonCol.mybtn,
+                  onPressed: () async {
+                    if (_formKey.currentState?.validate() ?? true) {
+
+                      final email = _emailController.text.trim();
+                      final password = _passwordController.text.trim();
+
+                      // 👇 simulate login (replace later with Firebase/API)
+                      if (email == "julie@gmail.com" && password == "123456") {
+                        Navigator.pushReplacementNamed(context, '/home');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Invalid email or password"),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      }
+                    }
+                  },
+                  txtcolors: TextCol.gentext,
+                ),
 
                         const SizedBox(height: 20),
 
@@ -204,16 +172,7 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
-          );
-        },
-      ),
+    )
     );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
   }
 }

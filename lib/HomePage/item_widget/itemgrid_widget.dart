@@ -4,7 +4,8 @@ import 'package:nextuse/HomePage/color_palette.dart';
 class ItemCard extends StatelessWidget {
   final String title;
   final int count;
-  final IconData? icon;        // swap for image later
+  final String? image;  
+  final IconData? icon;      
   final Color? cardColor;
   final Color? labelColor;
   final Color? countBadgeColor;
@@ -14,6 +15,7 @@ class ItemCard extends StatelessWidget {
     required this.title,
     required this.count,
     this.icon,
+    this.image,
     this.cardColor,
     this.labelColor,
     this.countBadgeColor,
@@ -33,10 +35,19 @@ class ItemCard extends StatelessWidget {
             child: Stack(
               children: [
                 Center(
-                  child: Icon(
-                    icon ?? Icons.recycling,
-                    size: 30,
-                    color: AppColors.textPrimary,
+                  child: Center(
+                    child: image != null
+                        ? Image.asset(
+                            image!,
+                            width: 30,
+                            height: 30,
+                            fit: BoxFit.contain,
+                          )
+                        : Icon(
+                            icon ?? Icons.recycling,
+                            size: 30,
+                            color: AppColors.textPrimary,
+                          ),
                   ),
                 ),
                 Positioned(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nextuse/SubScreens/Inventory/log_item.dart';
 import 'package:nextuse/account_profile/Widgets/primarybtn.dart';
 import 'package:nextuse/HomePage/home_content.dart';
 import '../A_Core/route/bottom_route.dart';
 import '../A_Core/Constants/Colors/color.dart';
-import '../A_Core/widgets/button.dart';
+import '../A_Core/widgets/topnav_btn.dart';
 import '../A_Core/widgets/bottom_nav.dart';
 import '../HomePage/widgets/notebook_card.dart';
 
@@ -166,18 +167,28 @@ class _InventoryState extends State<Inventory> {
               ),
               const SizedBox(height: 25,),
 
+              //Log Item
+
               Padding(
                 padding: const EdgeInsets.only(right: 15, left: 15),
                 child: PrimaryButton(text:"Log Item", 
                 colors: const Color.fromARGB(255, 141, 148, 109),
-                txtcolors: TextCol.gentext,),
+                txtcolors: TextCol.gentext,
+                onPressed: (){
+                   Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => LogItem()));                       
+                },),
               ),
                const SizedBox(height:15),
 
+                   //View Items 
                Padding(
                  padding: const EdgeInsets.only(right: 15, left: 15),
                  child: GestureDetector(
-                       onTap:(){},
+                       onTap:(){
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => LogItem()));
+                       },
                        child: Container(
                          width: double.infinity,
                          height: 50,

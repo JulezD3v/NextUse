@@ -48,6 +48,7 @@ class ItemsGrid extends StatelessWidget {
           child: ItemCard(
             title: item.title,
             count: item.count,
+            image: item.imagePath,
             icon: item.icon,
           ),
         );

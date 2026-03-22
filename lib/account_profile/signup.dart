@@ -70,6 +70,7 @@ class _SignupState extends State<Signup> {
               const SizedBox(height: 30),
 
           Padding(
+            
             padding: const EdgeInsets.all(20.0),
             child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +78,12 @@ class _SignupState extends State<Signup> {
                     const AuthTextField(label: "Full Name", hint: "Jane Doe", icon: Icons.person), 
                     const SizedBox(height: 10), 
                     const AuthTextField(label: "Email Address", hint: "name@example.com", icon: Icons.email),
+                    const SizedBox(height: 10),                    
+
+                    const AuthTextField(label: "Password", hint: "*****", icon: Icons.fullscreen),
                     const SizedBox(height: 10),
+                    const AuthTextField(label: "Confirm Password", hint: "*****", icon: Icons.fullscreen),
+                    const SizedBox(height: 8),
 
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,12 +108,7 @@ class _SignupState extends State<Signup> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 12),
-
-                    const AuthTextField(label: "Password", hint: "*****", icon: Icons.fullscreen),
-                    const SizedBox(height: 10),
-                    const AuthTextField(label: "Confirm Password", hint: "*****", icon: Icons.fullscreen),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 18),
             
                     Row(
                       children: [
@@ -157,7 +158,7 @@ class _SignupState extends State<Signup> {
                 ),
               ),
 
-              const SizedBox(height: 15),
+              const SizedBox(height: 30),
 
               // 🔹 Bottom Sign In
               Row(
@@ -182,8 +183,6 @@ class _SignupState extends State<Signup> {
                       )
                     ],
                   ),
-
-              const SizedBox(height: 30),
             ],
           ),
         ),

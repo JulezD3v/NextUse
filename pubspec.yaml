@@ -30,7 +30,29 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/Images/NextUse Logo/Large Logo.png
+    #Logo
+    - assets/Images/nextuse_logo/large_logo.png
+    
+    #Avatars
     - assets/Images/Onboarding/Onboarding 1.png
     - assets/Images/Onboarding/Onboarding 2.png
     - assets/Images/Onboarding/Onboarding 3.png
+    #Platic
+    - assets/Images/Inventory Items/1l PET-1.png
+    - assets/Images/Inventory Items/330ml PET.png
+    - assets/Images/Inventory Items/2l PET.png
+    - assets/Images/Inventory Items/2l HDPE.png
+    - assets/Images/Inventory Items/500ml PET.png
+    #paper
+    - assets/Images/Inventory Items/1l Carton.png
+    - assets/Images/Egg Carton/Egg carton small no BG.png
+    - assets/Images/Inventory Items/Box-1.png
+    #glass
+    - assets/Images/Categories/Glass.png
+    - assets/Images/Categories/wine_glass.png
+    #Metal
+    - assets/Images/Categories/Metal.png
+  
+
+
+

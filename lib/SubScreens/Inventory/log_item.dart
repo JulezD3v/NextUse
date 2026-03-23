@@ -9,6 +9,7 @@ import '/A_Core/route/bottom_route.dart';
 import './widget/items_db.dart';
 import '/HomePage/item_widget/itemgrid_widget.dart';
 import '/HomePage/item_widget/grid_tile.dart';
+import'./log_select.dart';
 
 class LogItem extends StatefulWidget {
   const LogItem({super.key});
@@ -183,13 +184,15 @@ bool hasSearched = false;
                         selectedItem = null;
                       });
                     },
-                    child: const Text("Reselect"),
+                    child: Text("Reselect"),
                   ),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=> QuantityPage(selectedItem: selectedItem!  )));
+                    },
                     child: const Text("Continue"),
                   ),
                 ),

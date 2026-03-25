@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextuse/SubScreens/Inventory/log_item.dart';
-import 'package:nextuse/account_profile/Widgets/primarybtn.dart';
+import 'package:nextuse/A_Core/widgets/primarybtn.dart';
 import 'package:nextuse/HomePage/home_content.dart';
 import '../A_Core/route/bottom_route.dart';
 import '../A_Core/Constants/Colors/color.dart';
@@ -179,38 +179,7 @@ class _InventoryState extends State<Inventory> {
                         MaterialPageRoute(builder: (_) => LogItem()));                       
                 },),
               ),
-               const SizedBox(height:15),
-
-                   //View Items 
-               Padding(
-                 padding: const EdgeInsets.only(right: 15, left: 15),
-                 child: GestureDetector(
-                       onTap:(){
-                        Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => LogItem()));
-                       },
-                       child: Container(
-                         width: double.infinity,
-                         height: 50,
-                         decoration: ShapeDecoration(
-                           color: ButtonCol.newbtn,
-                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                           
-                         ),
-                         
-                         child: Center(
-                           child: Text(
-                             "View Recyclables library",
-                             style: TextStyle(
-                               color:  TextCol.gentext,
-                               fontSize: 16,
-                               fontWeight: FontWeight.w600,
-                             ),
-                           ),
-                         ),
-                       ),
-                     ),
-               ),
+             
             ],
           ),
         ),

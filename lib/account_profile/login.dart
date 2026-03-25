@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/account_profile/signup.dart';
-import 'Widgets/primarybtn.dart';
+import '../A_Core/widgets/primarybtn.dart';
 import 'Widgets/textfield_widget.dart';
 import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 

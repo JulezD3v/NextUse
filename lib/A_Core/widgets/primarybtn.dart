@@ -6,12 +6,14 @@ final String text;
 final Color txtcolors;
 final Color colors;
 final VoidCallback? onPressed;
+final IconData? icon;
   const PrimaryButton({
     super.key,
     required this.text,
     required this.txtcolors,
     required this.colors,
     this.onPressed,
+    this.icon,
   });
 
   @override
@@ -39,13 +41,24 @@ final VoidCallback? onPressed;
       ],
 ),
         child: Center(
-          child: Text(
-            text,
-            style: TextStyle(
-              color:  txtcolors,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+             mainAxisSize: MainAxisSize.min,
+            children: [
+              if(icon != null)...[
+               Icon(
+                icon, color:Color(0xFF3D3820), size: 22,),
+               const SizedBox(width: 8,),],
+               Text(
+                text,
+                textAlign:TextAlign.center ,
+                style: TextStyle(
+                  color:  txtcolors,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ),
       ),

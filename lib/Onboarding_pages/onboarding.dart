@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 import 'package:nextuse/account_profile/signup.dart';
 import 'package:nextuse/A_Core/Constants/Colors/color.dart';
-import '../account_profile/Widgets/primarybtn.dart';
+import '../A_Core/widgets/primarybtn.dart';
 import '../account_profile/login.dart';
 
 class Onboarding extends StatelessWidget {

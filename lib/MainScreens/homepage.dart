@@ -15,7 +15,9 @@ import '../HomePage/widgets/notebook_card.dart';
 import '../HomePage/Data/bloc/home_bloc.dart';
 import '../HomePage/Data/repo/mock_home_repo.dart';
 import '../A_Core/widgets/sectionCard.dart';
-
+import '/SubScreens/Inventory/log_item.dart';
+import'../SubScreens/Inventory/Library/date_time.dart';
+import 'pickup.dart';
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
    const HomePage({super.key});
@@ -118,8 +120,23 @@ class _HomePageState extends State<HomePage> {
           ReminderCard(
             message: "Your next pickup is scheduled for Saturday 14 March",
             height: 130, // holes auto-scale with height
-            onViewDetails: () {},
-            onReschedule: () {},
+            onViewDetails: () {
+               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => Pickup()),);
+            },
+            onReschedule: () {
+               Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => SelectDateTimePage(
+                                      pickupItems:
+                                          [], // items are loaded inside RequestPickupPage from recy_lib
+                                    ),
+                                  ),
+                                );
+            },
           ),
 
           const SizedBox(height: 24,),
@@ -133,12 +150,24 @@ class _HomePageState extends State<HomePage> {
               QuickActionItem(
                 icon: Icons.add_circle_outline,
                 label: "Add to\ninventory",
-                onTap: () {},
+                onTap: () {
+                   Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => LogItem()));
+                },
               ),
               QuickActionItem(
                 icon: Icons.calendar_today_outlined,
                 label: "Schedule\npickup",
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => SelectDateTimePage(
+                        pickupItems:[], // items are loaded inside RequestPickupPage from recy_lib
+                      ),
+                    ),
+                  );
+                },
               ),
               QuickActionItem(
                 icon: Icons.card_giftcard_outlined,

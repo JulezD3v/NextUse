@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/A_Core/Constants/Colors/palette.dart';
-import '../account_profile/Widgets/primarybtn.dart';
+import '../A_Core/widgets/primarybtn.dart';
 import '../A_Core/Constants/Colors/color.dart';
 import 'onbd_two.dart';
 class OnbdOne extends StatelessWidget {
@@ -29,8 +29,8 @@ class OnbdOne extends StatelessWidget {
                 child:ClipRRect(
         borderRadius: BorderRadius.circular(32),
         child: Image.asset(
-          'assets/Images/Onboarding/Onboarding 1.png', // ← change to your chosen file name
-          fit: BoxFit.cover, // or BoxFit.contain if you want full visibility without cropping
+          'assets/Images/Onboarding/Onboarding 1.png', 
+          fit: BoxFit.cover, 
           width: double.infinity,
           height: double.infinity,
           alignment: Alignment.center,
@@ -42,8 +42,6 @@ class OnbdOne extends StatelessWidget {
               ),
 
               const SizedBox(height: 36),
-
-              // Headline text
               const Text(
                 'Simple. Convenient. Efficient.',
                 textAlign: TextAlign.center,

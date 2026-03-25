@@ -1,4 +1,5 @@
  import 'package:flutter/material.dart';
+import 'package:nextuse/MainScreens/homepage.dart';
  import '/HomePage/item_widget/grid_tile.dart';
 class SuccessPopup extends StatelessWidget {
   final GridItem item;
@@ -118,7 +119,10 @@ class SuccessPopup extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                onPressed: onViewItem,
+                onPressed: (){
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (_)=> HomePage()));
+                },
                 style: OutlinedButton.styleFrom(
                   foregroundColor: const Color(0xFF4A4440),
                   side: const BorderSide(color: Color(0xFFB8AE8B)),

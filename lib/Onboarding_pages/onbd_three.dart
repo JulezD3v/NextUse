@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/account_profile/login.dart';
 import 'package:nextuse/account_profile/signup.dart';
-import '../account_profile/Widgets/primarybtn.dart';
+import '../A_Core/widgets/primarybtn.dart';
 import '../A_Core/Constants/Colors/palette.dart';
 import '../A_Core/Constants/Colors/color.dart';
 

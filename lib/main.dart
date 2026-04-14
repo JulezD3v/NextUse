@@ -3,12 +3,12 @@ import 'package:nextuse/MainScreens/homepage.dart';
 
 // Fix 1: Use correct import paths — adjust based on where the files really are
 // Most likely one of these will work — test one at a time
-import 'package:nextuse/account_profile/splashScreen.dart';           // ← try this first
+import 'package:nextuse/account_profile/splashScreen.dart';           
 // import 'package:nextuse/Account%20and%20Profile/splashScreen.dart';
 // import 'package:nextuse/account_profile/splash_screen.dart';   // after rename
 
 import 'package:nextuse/Onboarding_pages/onbd_one.dart';
-// import 'package:nextuse/onboarding_pages/onbd_one.dart';      // after rename
+// import 'package:nextuse/onboarding_pages/onbd_one.dart';      
 
 void main() {
   runApp(const NextUseApp());

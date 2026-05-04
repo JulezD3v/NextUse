@@ -52,6 +52,11 @@ flutter:
     - assets/Images/Categories/wine_glass.png
     #Metal
     - assets/Images/Categories/Metal.png
+
+    #Signup logo 
+    - assets/Images/Signin alternatives logos/Apple.png
+    - assets/Images/Signin alternatives logos/FB.png
+    - assets/Images/Signin alternatives logos/Google.png
   
 
 

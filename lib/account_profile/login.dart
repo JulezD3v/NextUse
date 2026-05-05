@@ -3,6 +3,7 @@ import 'package:nextuse/account_profile/signup.dart';
 import '../A_Core/widgets/primarybtn.dart';
 import 'Widgets/textfield_widget.dart';
 import 'package:nextuse/A_Core/Constants/Colors/color.dart';
+import 'Widgets/accountop.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -21,158 +22,251 @@ class _LoginState extends State<Login> {
     return Scaffold(
       backgroundColor: Background.mainbg, // light beige background
       body: SafeArea(
-            child: SingleChildScrollView(
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Form(
-                    key: _formKey,
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Logo
-                        Container(
-                          height: 90,
-                          width: 90,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Background.containbg,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                blurRadius: 15,
-                                offset: const Offset(0, 8),
-                              )
-                            ],
+        child: SingleChildScrollView(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Logo
+                    Container(
+                      height: 90,
+                      width: 90,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Background.containbg,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 15,
+                            offset: const Offset(0, 8),
                           ),
-                          child: Icon(
-                            Icons.recycling,
-                            size: 40,
-                            color: ButtonCol.btnIcon,
+                        ],
+                      ),
+                      child: Icon(
+                        Icons.recycling,
+                        size: 40,
+                        color: ButtonCol.btnIcon,
+                      ),
+                    ),
+
+                    const SizedBox(height: 10),
+
+                    // App Name
+                    RichText(
+                      text: TextSpan(
+                        text: "Next",
+                        style: const TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF6E7F3F),
+                        ),
+                        children: [
+                          TextSpan(
+                            text: "Use",
+                            style: TextStyle(
+                              color: TextCol.gentext,
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 15),
+
+                    // Welcome Text
+                    const Text(
+                      "Welcome back!",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0xFF8B7E54),
+                      ),
+                    ),
+
+                    const SizedBox(height: 30),
+
+                    AuthTextField(
+                      label: "Email",
+                      hint: "name@example.com",
+                      icon: Icons.email,
+                      controller: _emailController, // ← added
+                    ),
+
+                    const SizedBox(height: 10),
+
+                    AuthTextField(
+                      label: "Password",
+                      hint: "*****",
+                      icon: Icons.lock, // changed icon to more appropriate one
+
+                      controller: _passwordController, // ← added
+                    ),
+
+                    const SizedBox(height: 5),
+
+                    // Forgot password
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Forgot password?",
+                          style: TextStyle(color: Color(0xFF6E7F3F)),
                         ),
+                      ),
+                    ),
 
-                        const SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-                        // App Name
-                        RichText(
-                          text: TextSpan(text: "Next",style: 
-                          const TextStyle(fontSize: 32,fontWeight: FontWeight.bold, color: Color(0xFF6E7F3F),),
-                            children: [
-                              TextSpan(text: "Use",
-                                style: TextStyle(color: TextCol.gentext,fontSize: 32,fontWeight: FontWeight.bold,),)
-                            ],),
-                        ),
+                    // Login Button – only this onPressed changed
+                    PrimaryButton(
+                      text: "Log In",
+                      colors: ButtonCol.mybtn,
+                      onPressed: () async {
+                        if (_formKey.currentState?.validate() ?? true) {
+                          final email = _emailController.text.trim();
+                          final password = _passwordController.text.trim();
 
-                        const SizedBox(height: 15),
-
-                        // Welcome Text
-                        const Text(
-                          "Welcome back!",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xFF8B7E54),
-                          ),
-                        ),
-
-                        const SizedBox(height: 30),
-
-                        AuthTextField(
-                          label: "Email",
-                          hint: "name@example.com",
-                          icon: Icons.email,
-                          controller: _emailController,          // ← added
-                        ),
-
-                        const SizedBox(height: 10),
-
-                        AuthTextField(
-                          label: "Password",
-                          hint: "*****",
-                          icon: Icons.lock,                       // changed icon to more appropriate one
-                          
-                          controller: _passwordController,        // ← added
-                        ),
-
-                        const SizedBox(height: 5),
-
-                        // Forgot password
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              "Forgot password?",
-                              style: TextStyle(
-                                color: Color(0xFF6E7F3F),
+                          // 👇 simulate login (replace later with Firebase/API)
+                          if (email == "julie@gmail.com" &&
+                              password == "123456") {
+                            Navigator.pushReplacementNamed(context, '/home');
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text("Invalid email or password"),
+                                backgroundColor: Colors.red,
                               ),
-                            ),
-                          ),
-                        ),
+                            );
+                          }
+                        }
+                      },
+                      txtcolors: TextCol.gentext,
+                    ),
 
-                        const SizedBox(height: 10),
-
-                        // Login Button – only this onPressed changed
-                       PrimaryButton(
-                  text: "Log In",
-                  colors: ButtonCol.mybtn,
-                  onPressed: () async {
-                    if (_formKey.currentState?.validate() ?? true) {
-
-                      final email = _emailController.text.trim();
-                      final password = _passwordController.text.trim();
-
-                      // 👇 simulate login (replace later with Firebase/API)
-                      if (email == "julie@gmail.com" && password == "123456") {
-                        Navigator.pushReplacementNamed(context, '/home');
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Invalid email or password"),
-                            backgroundColor: Colors.red,
-                          ),
-                        );
-                      }
-                    }
-                  },
-                  txtcolors: TextCol.gentext,
-                ),
-
-                        const SizedBox(height: 20),
-
-                        // Sign up text
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
-                              "Don't have an account? ",
-                              style: TextStyle(color: Color(0xFF8B7E54)),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (_) => const Signup()),
-                                );
-                              },
-                              child: const Text(
-                                "Sign up",
-                                style: TextStyle(
-                                  color: Color(0xFF6E7F3F),
-                                  fontWeight: FontWeight.bold,
+                    const SizedBox(height: 20),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.brown.shade200,
+                                  thickness: 1,
                                 ),
                               ),
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10.0,
+                                ),
+                                child: Text(
+                                  'or continue with',
+                                  style: TextStyle(
+                                    color: Colors.brown.shade300,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  color: Colors.brown.shade200,
+                                  thickness: 1,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          const SizedBox(height: 20),
+
+                          // Social icons row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SocialButton(
+                                onTap: () {
+                                  // Handle Google sign-in
+                                },
+                                child: Image.asset(
+                                  'assets/Images/Signin alternatives logos/Google.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+
+                              const SizedBox(width: 20),
+
+                              SocialButton(
+                                onTap: () {
+                                  //Facebook sign-in
+                                },
+                                child: Image.asset(
+                                  'assets/Images/Signin alternatives logos/FB.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+
+                              const SizedBox(width: 20),
+
+                              SocialButton(
+                                onTap: () {
+                                  //Apple sign-in
+                                },
+                                child: Image.asset(
+                                  'assets/Images/Signin alternatives logos/Apple.png',
+                                  width: 24,
+                                  height: 24,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    // Sign up text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Don't have an account? ",
+                          style: TextStyle(color: Color(0xFF8B7E54)),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (_) => const Signup()),
+                            );
+                          },
+                          child: const Text(
+                            "Sign up",
+                            style: TextStyle(
+                              color: Color(0xFF6E7F3F),
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
-    )
+          ),
+        ),
+      ),
     );
   }
 }

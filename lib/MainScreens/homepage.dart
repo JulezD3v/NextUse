@@ -16,20 +16,19 @@ import '../HomePage/Data/bloc/home_bloc.dart';
 import '../HomePage/Data/repo/mock_home_repo.dart';
 import '../A_Core/widgets/sectionCard.dart';
 import '/SubScreens/Inventory/log_item.dart';
-import'../SubScreens/Inventory/Library/date_time.dart';
+import '../SubScreens/Inventory/Library/date_time.dart';
 import 'pickup.dart';
+
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-   const HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-   // This controls which tab is active
-
-
+  // This controls which tab is active
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +38,39 @@ class _HomePageState extends State<HomePage> {
         builder: (context) {
           return Scaffold(
             drawer: AppDrawer(
-              
               name: 'Florence Okoye',
-              image: AssetImage('assets/images/profile.jpg'), // or NetworkImage(url)
+              image: AssetImage(
+                'assets/images/profile.jpg',
+              ), // or NetworkImage(url)
               width: 45,
               onEditProfile: () {},
-              onSettings: () {},//=> Navigator.pushNamed(context, '/settings'),
-              onSupport: () {},//=> Navigator.pushNamed(context, '/support'),
-              onPrivacyAbout: (){},// => Navigator.pushNamed(context, '/privacy'),
+              onSettings: () {}, //=> Navigator.pushNamed(context, '/settings'),
+              onSupport: () {}, //=> Navigator.pushNamed(context, '/support'),
+              onPrivacyAbout:
+                  () {}, // => Navigator.pushNamed(context, '/privacy'),
             ),
             backgroundColor: Background.mainbg,
             appBar: AppBar(
-              backgroundColor: Colors.transparent, // so the pill's background shows
+              backgroundColor:
+                  Colors.transparent, // so the pill's background shows
               elevation: 0,
               titleSpacing: 0,
               automaticallyImplyLeading: false, // remove default back arrow
-              
-              title:  Align(
-                    alignment: Alignment.centerLeft,
-                    child: PageHeader(
-                      title: "NextUse", // ← changes per page
-                      leadingIcon: Icons.menu, // ← changes per page
-                       onLeadingTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=> AppDrawer()));
-                       }// open menu/drawer
-                    ),
-                  ),
-               
+
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: PageHeader(
+                  title: "NextUse", // ← changes per page
+                  leadingIcon: Icons.menu, // ← changes per page
+                  onLeadingTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => AppDrawer()),
+                    );
+                  }, // open menu/drawer
+                ),
+              ),
+
               centerTitle: false, // keep it on the left
               actions: [
                 IconButton(
@@ -100,13 +105,13 @@ class _HomePageState extends State<HomePage> {
               },
             ),
             bottomNavigationBar: CustomNavBar(
-            selectedIndex: 0,
-            onTap: (index) {
-              navigate(context, index);
-            },
-          ),
+              selectedIndex: 0,
+              onTap: (index) {
+                navigate(context, index);
+              },
+            ),
           );
-        }
+        },
       ),
     );
   }
@@ -121,40 +126,42 @@ class _HomePageState extends State<HomePage> {
             message: "Your next pickup is scheduled for Saturday 14 March",
             height: 130, // holes auto-scale with height
             onViewDetails: () {
-               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => Pickup()),);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => Pickup()),
+              );
             },
             onReschedule: () {
-               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => SelectDateTimePage(
-                                      pickupItems:
-                                          [], // items are loaded inside RequestPickupPage from recy_lib
-                                    ),
-                                  ),
-                                );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => SelectDateTimePage(
+                    pickupItems:
+                        [], // items are loaded inside RequestPickupPage from recy_lib
+                  ),
+                ),
+              );
             },
           ),
 
-          const SizedBox(height: 24,),
-          // Quick Actions
+          const SizedBox(height: 24),
 
+          // Quick Actions
           const SizedBox(height: 20),
           QuickActionsCard(
             height: 130,
             navbarTextColor: TextCol.gentext,
-            navbarColor: Background.containbg,
-            bodyColor: Background.containbg,
+            navbarColor: Background.action,
+            bodyColor: Background.action,
             actions: [
               QuickActionItem(
                 icon: Icons.add_circle_outline,
                 label: "Add to\ninventory",
                 onTap: () {
-                   Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => LogItem()));
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => LogItem()),
+                  );
                 },
               ),
               QuickActionItem(
@@ -165,7 +172,8 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(
                       builder: (_) => SelectDateTimePage(
-                        pickupItems:[], // items are loaded inside RequestPickupPage from recy_lib
+                        pickupItems:
+                            [], // items are loaded inside RequestPickupPage from recy_lib
                       ),
                     ),
                   );
@@ -250,24 +258,47 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                       
-
                       ],
                     ),
                   ),
-                   const SizedBox(height: 20),
-                       Expanded(
-                         child: ItemsGrid(
-                             items: [
-                              GridItem(title: "1L PET Bottle", count: 36, icon: Icons.local_drink, category: "Plastic", ),
-    GridItem(title: "500ml PET Bot...", count: 14, icon: Icons.local_drink, category: "Plastic",),
-    GridItem(title: "2L HDPE Bottle", count: 3, icon: Icons.local_drink, category: "Plastic"),
-    GridItem(title: "2L PET Bottle", count: 11, icon: Icons.local_drink, category: "Plastic"),
-    GridItem(title: "330ml PET Bot...", count: 14, icon: Icons.local_drink, category: "Plastic"),
-    // Paper
-     ],
-                           ),
-                       ),
+                  const SizedBox(height: 20),
+                  Expanded(
+                    child: ItemsGrid(
+                      items: [
+                        GridItem(
+                          title: "1L PET Bottle",
+                          count: 36,
+                          icon: Icons.local_drink,
+                          category: "Plastic",
+                        ),
+                        GridItem(
+                          title: "500ml PET Bot...",
+                          count: 14,
+                          icon: Icons.local_drink,
+                          category: "Plastic",
+                        ),
+                        GridItem(
+                          title: "2L HDPE Bottle",
+                          count: 3,
+                          icon: Icons.local_drink,
+                          category: "Plastic",
+                        ),
+                        GridItem(
+                          title: "2L PET Bottle",
+                          count: 11,
+                          icon: Icons.local_drink,
+                          category: "Plastic",
+                        ),
+                        GridItem(
+                          title: "330ml PET Bot...",
+                          count: 14,
+                          icon: Icons.local_drink,
+                          category: "Plastic",
+                        ),
+                        // Paper
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

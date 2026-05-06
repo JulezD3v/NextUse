@@ -48,7 +48,7 @@ class QuickActionsCard extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
-            color: navbarColor ??  Background.containbg,
+            color: navbarColor ??  Background.action,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(14),
               topRight: Radius.circular(14),
@@ -71,7 +71,7 @@ class QuickActionsCard extends StatelessWidget {
         Container(
           height: height,
           decoration: BoxDecoration(
-            color: Background.containbg,
+            color: Background.action,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(16),
               bottomRight: Radius.circular(16),

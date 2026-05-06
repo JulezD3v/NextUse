@@ -340,7 +340,7 @@ class _PickupState extends State<Pickup> {
             child: QuickActionsCard(
               title: "Request Another Pickup",
               height: 320,
-              bodyColor: Color(0xFFF5F0DC),
+              bodyColor: Background.action,
               navbarColor: Color(0xFFF5F0DC),
               navbarTextColor: TextCol.gentext,
               child: Padding(
@@ -431,7 +431,7 @@ class _PickupState extends State<Pickup> {
                                 ),
                                 const SizedBox(height: 10),
                                 const Text(
-                                  'SATURDAY',
+                                  'MONDAY',
                                   style: TextStyle(
                                     fontSize: 11,
                                     fontWeight: FontWeight.bold,
@@ -576,6 +576,7 @@ class _PickupState extends State<Pickup> {
 
           // My Highlights Card
           NotebookCard(
+            backgroundColor: Background.containbg,
             title: 'PickUp History',
             height: 230,
             child: SingleChildScrollView(

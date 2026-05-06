@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nextuse/A_Core/widgets/common_container.dart';
-import 'package:nextuse/A_Core/widgets/segm_cont.dart';
-import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
+//import 'package:nextuse/A_Core/widgets/common_container.dart';
+//import 'package:nextuse/A_Core/widgets/segm_cont.dart';
+//import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
 //import 'package:nextuse/HomePage/home_content.dart';
 import '../A_Core/route/bottom_route.dart';
-import '../A_Core/Constants/Colors/color.dart';
 import '../A_Core/widgets/topnav_btn.dart';
 import '../A_Core/widgets/notebook.dart';
 import '../HomePage/widgets/action_card.dart';
@@ -17,19 +16,21 @@ import '../HomePage/Data/repo/mock_home_repo.dart';
 import '../A_Core/widgets/sectionCard.dart';
 import 'package:nextuse/HomePage/item_widget/flash_card.dart';
 
+//colors
+import '../A_Core/Constants/Colors/color.dart';
+import '../A_Core/Constants/Colors/palette.dart';
+
 class Reward extends StatefulWidget {
   //final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
-   const Reward({super.key});
+  const Reward({super.key});
 
   @override
   State<Reward> createState() => _RewardState();
 }
 
 class _RewardState extends State<Reward> {
-   // This controls which tab is active
+  // This controls which tab is active
   //int _selectedIndex = 0;
-  
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +40,40 @@ class _RewardState extends State<Reward> {
         builder: (context) {
           return Scaffold(
             drawer: AppDrawer(
-              
               name: 'Florence Okoye',
-              image: AssetImage('assets/images/profile.jpg'), // or NetworkImage(url)
+              image: AssetImage(
+                'assets/images/profile.jpg',
+              ), // or NetworkImage(url)
               width: 45,
               onEditProfile: () {},
-              onSettings: () {},//=> Navigator.pushNamed(context, '/settings'),
-              onSupport: () {},//=> Navigator.pushNamed(context, '/support'),
-              onPrivacyAbout: (){},// => Navigator.pushNamed(context, '/privacy'),
+              onSettings: () {}, //=> Navigator.pushNamed(context, '/settings'),
+              onSupport: () {}, //=> Navigator.pushNamed(context, '/support'),
+              onPrivacyAbout:
+                  () {}, // => Navigator.pushNamed(context, '/privacy'),
             ),
             backgroundColor: Background.mainbg,
             appBar: AppBar(
-              backgroundColor: Colors.transparent, // so the pill's background shows
+              backgroundColor:
+                  Colors.transparent, // so the pill's background shows
               elevation: 0,
               titleSpacing: 0,
               automaticallyImplyLeading: false, // remove default back arrow
-              
-              title:  Align(
-                    alignment: Alignment.centerLeft,
-                    child: PageHeader(
-                      title: "Reward Hub", // ← changes per page
-                      leadingIcon: Icons.card_giftcard_outlined, // ← changes per page
-                       onLeadingTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (_)=> AppDrawer()));
-                       }// open menu/drawer
-                    ),
-                  ),
-               
+
+              title: Align(
+                alignment: Alignment.centerLeft,
+                child: PageHeader(
+                  title: "Reward Hub", // ← changes per page
+                  leadingIcon:
+                      Icons.card_giftcard_outlined, // ← changes per page
+                  onLeadingTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => AppDrawer()),
+                    );
+                  }, // open menu/drawer
+                ),
+              ),
+
               centerTitle: false, // keep it on the left
               actions: [
                 IconButton(
@@ -100,13 +108,13 @@ class _RewardState extends State<Reward> {
               },
             ),
             bottomNavigationBar: CustomNavBar(
-            selectedIndex: 0,
-            onTap: (index) {
-              navigate(context, index);
-            },
-          ),
+              selectedIndex: 0,
+              onTap: (index) {
+                navigate(context, index);
+              },
+            ),
           );
-        }
+        },
       ),
     );
   }
@@ -117,110 +125,120 @@ class _RewardState extends State<Reward> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
-           QuickActionsCard(
-            title:"Available Rewards",
+          QuickActionsCard(
+            navbarColor: Background.containbg,
+            bodyColor: Background.containbg,
+            title: "Available Rewards",
             navbarTextColor: TextCol.gentext,
-            height: 145, 
+            height: 145,
             child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Row(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "47,285",
-                                style: TextStyle(
-                                  color: Color(0xFF7F903C),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              "EcoPoints",
-                              style: TextStyle(
-                                color: Color(0xFF7F903C),
-                                fontWeight: FontWeight.w200,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 5),
-                        child: Row(
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "+7,285",
-                                style: TextStyle(
-                                  color: Color(0xFF7F903C),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ),
-                            const SizedBox(width: 4),
-                            Text(
-                              "EP (Pending)",
-                              style: TextStyle(
-                                color: Color(0xFF7F903C),
-                                fontWeight: FontWeight.w300,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 10,),
-                      Padding(
-                                       padding: const EdgeInsets.only(right: 15, left: 15, bottom: 15),
-                                       child: GestureDetector(
-                        onTap:(){},
-                        child: Container(
-                          width: double.infinity,
-                          height: 45,
-                          decoration: ShapeDecoration(
-                            color: ButtonCol.newbtn. withOpacity(0.5),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25),),
-                            
-                          ),
-                          
-                          child: Center(
-                            child: Text(
-                              "View Recyclables library",
-                              style: TextStyle(
-                                color:  TextCol.gentext,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "47,285",
+                          style: TextStyle(
+                            color: Color(0xFF7F903C),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
                           ),
                         ),
                       ),
-                                     ),
+                      const SizedBox(width: 4),
+                      Text(
+                        "EcoPoints",
+                        style: TextStyle(
+                          color: Color(0xFF7F903C),
+                          fontWeight: FontWeight.w200,
+                          fontSize: 20,
+                        ),
+                      ),
                     ],
                   ),
-                      
-            
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: Row(
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "+7,285",
+                          style: TextStyle(
+                            color: Color(0xFF7F903C),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        "EP (Pending)",
+                        style: TextStyle(
+                          color: Color(0xFF7F903C),
+                          fontWeight: FontWeight.w300,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    right: 15,
+                    left: 15,
+                    bottom: 15,
+                  ),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      width: double.infinity,
+                      height: 45,
+                      decoration: ShapeDecoration(
+                        color: ButtonCol.newbtn.withOpacity(0.5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                      ),
+
+                      child: Center(
+                        child: Text(
+                          "View Recyclables library",
+                          style: TextStyle(
+                            color: TextCol.gentext,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
 
           const SizedBox(height: 20),
-          const SizedBox(height: 24,),
-            NotebookCard(
+          const SizedBox(height: 24),
+          NotebookCard(
+            backgroundColor: Background.containbg,
             title: 'PickUp History',
             height: 230,
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   FlatCard(
-                    color: const Color.fromARGB(255, 247, 248, 168).withOpacity(0.5),
+                    color: const Color.fromARGB(
+                      255,
+                      247,
+                      248,
+                      168,
+                    ).withOpacity(0.5),
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text("8,904  pending"),
@@ -237,7 +255,12 @@ class _RewardState extends State<Reward> {
                   const SizedBox(height: 5),
 
                   FlatCard(
-                    color: const Color.fromARGB(255, 247, 248, 168).withOpacity(0.5),
+                    color: const Color.fromARGB(
+                      255,
+                      247,
+                      248,
+                      168,
+                    ).withOpacity(0.5),
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Text("4,000  pending"),
@@ -249,12 +272,12 @@ class _RewardState extends State<Reward> {
             ),
           ),
 
-          const SizedBox(height: 24,),
-          // Quick Actions
+          const SizedBox(height: 24),
 
+          // Quick Actions
           const SizedBox(height: 20),
           QuickActionsCard(
-            title:"Available Rewards",
+            title: "Available Rewards",
             navbarTextColor: TextCol.gentext,
             height: 130,
             actions: [
@@ -280,6 +303,7 @@ class _RewardState extends State<Reward> {
 
           // My Highlights Card
           NotebookCard(
+            backgroundColor: Background.containbg,
             title: 'My Highlights',
             actionLabel: 'See more',
             onActionTap: () {},

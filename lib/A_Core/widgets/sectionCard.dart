@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextuse/A_Core/Constants/Colors/palette.dart';
+import '../Constants/Colors/color.dart';
 
 class TabContainerCard extends StatelessWidget {
 
@@ -96,7 +97,7 @@ class TabContainerCard extends StatelessWidget {
               //width: containerWidth ?? 329.76,
               height: containerHeight ?? 300.3,
               decoration: BoxDecoration(
-                color: Color(0xFFEDE8D4),
+                color: Background.containbg,
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
                   bottomRight: Radius.circular(20),

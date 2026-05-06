@@ -69,6 +69,7 @@ class _InventoryState extends State<Inventory> {
                   left: 15,
                   right: 15),
                 child: NotebookCard(
+                  backgroundColor: Background.containbg,
                   title: 'Inventory Value',
                   height: 170,
                   child: Column(

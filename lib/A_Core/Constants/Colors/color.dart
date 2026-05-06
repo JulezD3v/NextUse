@@ -7,6 +7,7 @@ class Background {
   static const Color calbg = Color(0xFFF4F1E4);      // calendar / highlight areas
   static const Color confirmbg = Color(0xFF8E9A5B);  // confirm buttons (accent)
   static const Color secbg = Color(0xFF8E9A5B);      // secondary accents
+  static const Color action = Color(0xFFD2E3EF); //Action
 }
 
 class TextCol {

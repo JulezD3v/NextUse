@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nextuse/A_Core/Constants/Colors/color.dart';
 
 class QuickActionItem {
   final IconData icon;
@@ -47,7 +48,7 @@ class QuickActionsCard extends StatelessWidget {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
           decoration: BoxDecoration(
-            color: navbarColor ??  Color(0xFFF5F0DC),
+            color: navbarColor ??  Background.containbg,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(14),
               topRight: Radius.circular(14),
@@ -70,7 +71,7 @@ class QuickActionsCard extends StatelessWidget {
         Container(
           height: height,
           decoration: BoxDecoration(
-            color: Color(0xFFF5F0DC),
+            color: Background.containbg,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(16),
               bottomRight: Radius.circular(16),

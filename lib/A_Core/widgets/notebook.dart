@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Constants/Colors/color.dart';
 
 class ReminderCard extends StatelessWidget {
   final String message;
@@ -21,7 +22,7 @@ class ReminderCard extends StatelessWidget {
     return Container(
       height: height,
       decoration: BoxDecoration(
-        color: const Color(0xFFF5F0DC), // warm cream
+        color: Background.containbg, // warm cream
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: const Color(0xFFD6CFA8), width: 1),
       ),

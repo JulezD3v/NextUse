@@ -146,6 +146,8 @@ class _HomePageState extends State<HomePage> {
           QuickActionsCard(
             height: 130,
             navbarTextColor: TextCol.gentext,
+            navbarColor: Background.containbg,
+            bodyColor: Background.containbg,
             actions: [
               QuickActionItem(
                 icon: Icons.add_circle_outline,
@@ -181,6 +183,7 @@ class _HomePageState extends State<HomePage> {
 
           // My Highlights Card
           NotebookCard(
+            backgroundColor: Background.containbg,
             title: 'My Highlights',
             actionLabel: 'See more',
             onActionTap: () {},

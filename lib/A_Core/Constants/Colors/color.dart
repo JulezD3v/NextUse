@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Background {
-  static const Color mainbg = Color(0xFFE8E3CF);     // your main background
-  static const Color containbg = Color(0xFFF4F1E4);  // cards / containers
+  static const Color mainbg = Color(0xFFEDE8D4);     // your main background
+  static const Color containbg = Color(0xFFF9F7F1);  // cards / containers
   static const Color gridbg = Color(0xFFE2DCC7);     // grids / subtle sections
   static const Color calbg = Color(0xFFF4F1E4);      // calendar / highlight areas
   static const Color confirmbg = Color(0xFF8E9A5B);  // confirm buttons (accent)

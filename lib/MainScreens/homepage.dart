@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nextuse/A_Core/widgets/common_container.dart';
 import 'package:nextuse/A_Core/widgets/segm_cont.dart';
+import 'package:nextuse/Ecobot/ecobot.dart';
 import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
 //import 'package:nextuse/HomePage/home_content.dart';
 import '../A_Core/route/bottom_route.dart';
@@ -75,10 +76,13 @@ class _HomePageState extends State<HomePage> {
               actions: [
                 IconButton(
                   icon: const Icon(
-                    Icons.notifications_outlined,
+                    Icons.chat_bubble,
                     color: TextCol.gentext,
                   ),
-                  onPressed: () {},
+                  onPressed: (){
+                    Navigator.push(context, 
+                    MaterialPageRoute(builder:(_) => Ecobot()));
+                  },
                 ),
                 const SizedBox(width: 8),
               ],

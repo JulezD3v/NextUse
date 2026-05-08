@@ -1,24 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nextuse/A_Core/widgets/common_container.dart';
-import 'package:nextuse/A_Core/widgets/segm_cont.dart';
+
+//Working progress
+//import 'package:flutter_bloc/flutter_bloc.dart';
+
+//import 'package:nextuse/A_Core/widgets/segm_cont.dart';
 import 'package:nextuse/Ecobot/ecobot.dart';
 import 'package:nextuse/HomePage/item_widget/grid_tile.dart';
+import 'hamburger.dart';
+import '/SubScreens/Inventory/log_item.dart';
+import '../SubScreens/Inventory/Library/date_time.dart';
+import 'pickup.dart';
+
 //import 'package:nextuse/HomePage/home_content.dart';
 import '../A_Core/route/bottom_route.dart';
 import '../A_Core/Constants/Colors/color.dart';
+
+//Feature Widgets
 import '../A_Core/widgets/topnav_btn.dart';
 import '../A_Core/widgets/notebook.dart';
 import '../HomePage/widgets/action_card.dart';
 import '../A_Core/widgets/bottom_nav.dart';
 import '../A_Core/widgets/menu_drawer.dart';
 import '../HomePage/widgets/notebook_card.dart';
-import '../HomePage/Data/bloc/home_bloc.dart';
-import '../HomePage/Data/repo/mock_home_repo.dart';
 import '../A_Core/widgets/sectionCard.dart';
-import '/SubScreens/Inventory/log_item.dart';
-import '../SubScreens/Inventory/Library/date_time.dart';
-import 'pickup.dart';
+import 'package:nextuse/A_Core/widgets/common_container.dart';
+
+//Bloc Still working on the bloc
+//import '../HomePage/Data/bloc/home_bloc.dart';
+//import '../HomePage/Data/repo/mock_home_repo.dart';
+
 
 class HomePage extends StatefulWidget {
   //final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
@@ -33,95 +43,66 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (_) => HomeBloc(MockHomeRepository())..add(FetchHomeHighlights()),
-      child: Builder(
-        builder: (context) {
-          return Scaffold(
-            drawer: AppDrawer(
-              name: 'Florence Okoye',
-              image: AssetImage(
-                'assets/images/profile.jpg',
-              ), // or NetworkImage(url)
-              width: 45,
-              onEditProfile: () {},
-              onSettings: () {}, //=> Navigator.pushNamed(context, '/settings'),
-              onSupport: () {}, //=> Navigator.pushNamed(context, '/support'),
-              onPrivacyAbout:
-                  () {}, // => Navigator.pushNamed(context, '/privacy'),
-            ),
-            backgroundColor: Background.mainbg,
-            appBar: AppBar(
-              backgroundColor:
-                  Colors.transparent, // so the pill's background shows
-              elevation: 0,
-              titleSpacing: 0,
-              automaticallyImplyLeading: false, // remove default back arrow
-
-              title: Align(
-                alignment: Alignment.centerLeft,
-                child: PageHeader(
-                  title: "NextUse", // ← changes per page
-                  leadingIcon: Icons.menu, // ← changes per page
-                  onLeadingTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => AppDrawer()),
-                    );
-                  }, // open menu/drawer
-                ),
-              ),
-
-              centerTitle: false, // keep it on the left
-              actions: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.chat_bubble,
-                    color: TextCol.gentext,
-                  ),
-                  onPressed: (){
-                    Navigator.push(context, 
-                    MaterialPageRoute(builder:(_) => Ecobot()));
-                  },
-                ),
-                const SizedBox(width: 8),
-              ],
-            ),
-            body: BlocBuilder<HomeBloc, HomeState>(
-              builder: (context, state) {
-                if (state is HomeLoading) {
-                  return const Center(
-                    child: CircularProgressIndicator(color: ButtonCol.mybtn),
-                  );
-                }
-                if (state is HomeError) {
-                  return Center(
-                    child: Text(
-                      state.message,
-                      style: const TextStyle(color: Colors.red),
-                    ),
-                  );
-                }
-                if (state is HomeLoaded) {
-                  return _buildContent(context, state);
-                }
-                return const SizedBox();
-              },
-            ),
-            bottomNavigationBar: CustomNavBar(
-              selectedIndex: 0,
-              onTap: (index) {
-                navigate(context, index);
-              },
-            ),
-          );
+        return Scaffold(
+          backgroundColor: Background.mainbg,
+      bottomNavigationBar: CustomNavBar(
+        selectedIndex: 0,
+        onTap: (index) {
+          navigate(context, index);
         },
       ),
-    );
-  }
-
-  Widget _buildContent(BuildContext context, HomeLoaded state) {
-    return SingleChildScrollView(
+       appBar: AppBar(
+            backgroundColor:
+                Colors.transparent, // so the pill's background shows
+            elevation: 0,
+            titleSpacing: 0,
+            automaticallyImplyLeading: false, // remove default back arrow
+    
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: PageHeader(
+                title: "NextUse", // ← changes per page
+                leadingIcon: Icons.menu, // ← changes per page
+                onLeadingTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => AppDrawer()),
+                  );
+                }, // open menu/drawer
+              ),
+            ),
+    
+            centerTitle: false, // keep it on the left
+            actions: [
+              IconButton(
+                icon: const Icon(
+                  Icons.chat_bubble,
+                  color: TextCol.gentext,
+                ),
+                onPressed: (){
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder:(_) => Ecobot()));
+                },
+              ),
+              const SizedBox(width: 8),
+            ],
+          ),
+          
+          drawer: AppDrawer(
+            name: 'Florence Okoye',
+            image: AssetImage(
+              'assets/images/profile.jpg',
+            ), // or NetworkImage(url)
+            width: 45,
+            onEditProfile: () {},
+            onSettings: () {}, //=> Navigator.pushNamed(context, '/settings'),
+            onSupport: () {}, //=> Navigator.pushNamed(context, '/support'),
+            onPrivacyAbout:
+                () {}, // => Navigator.pushNamed(context, '/privacy'),
+          ),
+          
+          
+          body:  SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -201,11 +182,6 @@ class _HomePageState extends State<HomePage> {
             onActionTap: () {},
             height: 450,
             child: MyHighlightsContent(
-              earningsAmount: state.highlight.earnings.toStringAsFixed(0),
-              plasticKg: '${state.highlight.totalPlasticKg} kg',
-              binCount: state
-                  .highlight
-                  .cansRecycled, // ← drives bin icons automatically
               onViewWallet: () {},
             ),
           ),
@@ -309,6 +285,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-    );
+    ),
+        );
   }
 }

@@ -20,7 +20,7 @@ import '../A_Core/widgets/topnav_btn.dart';
 import '../A_Core/widgets/notebook.dart';
 import '../HomePage/widgets/action_card.dart';
 import '../A_Core/widgets/bottom_nav.dart';
-import '../A_Core/widgets/menu_drawer.dart';
+//import '../A_Core/widgets/menu_drawer.dart';
 import '../HomePage/widgets/notebook_card.dart';
 import '../A_Core/widgets/sectionCard.dart';
 import 'package:nextuse/A_Core/widgets/common_container.dart';
@@ -39,6 +39,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   // This controls which tab is active
 
   @override
@@ -51,6 +52,7 @@ class _HomePageState extends State<HomePage> {
           navigate(context, index);
         },
       ),
+
        appBar: AppBar(
             backgroundColor:
                 Colors.transparent, // so the pill's background shows
@@ -64,11 +66,8 @@ class _HomePageState extends State<HomePage> {
                 title: "NextUse", // ← changes per page
                 leadingIcon: Icons.menu, // ← changes per page
                 onLeadingTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => AppDrawer()),
-                  );
-                }, // open menu/drawer
+                _scaffoldKey.currentState?.openDrawer();   // open drawer, not a new page
+          },// open menu/drawer
               ),
             ),
     
@@ -88,7 +87,8 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           
-          drawer: AppDrawer(
+          key: _scaffoldKey,
+          drawer: Humburger(
             name: 'Florence Okoye',
             image: AssetImage(
               'assets/images/profile.jpg',

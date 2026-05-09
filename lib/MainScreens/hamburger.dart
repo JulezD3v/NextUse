@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../A_Core/Constants/Colors/color.dart';
 class Humburger extends StatefulWidget {
 
   const Humburger({
@@ -48,7 +49,7 @@ class _HumburgerState extends State<Humburger> {
                   const SizedBox(width: 12),
                   Text(
                     widget.name,
-                    style: const TextStyle(color: Colors.white, fontSize: 18),
+                    style: const TextStyle(color: Background.containbg, fontSize: 18),
                   ),
                 ],
               ),

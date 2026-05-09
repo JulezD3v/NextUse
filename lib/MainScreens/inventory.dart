@@ -48,7 +48,7 @@ class _InventoryState extends State<Inventory> {
         actions: [
           IconButton(
             icon: const Icon(
-              Icons.notifications_outlined,
+              Icons.search_rounded,
               color: TextCol.gentext,
             ),
             onPressed: () {},
@@ -180,7 +180,19 @@ class _InventoryState extends State<Inventory> {
                         MaterialPageRoute(builder: (_) => LogItem()));                       
                 },),
               ),
-             
+
+              const SizedBox(height: 25,),
+
+              Padding(
+                padding: const EdgeInsets.only(right: 15, left: 15),
+                child: PrimaryButton(text:"View Recycable Library", 
+                colors: const Color.fromARGB(255, 141, 148, 109),
+                txtcolors: TextCol.gentext,
+                onPressed: (){
+                   Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => LogItem()));                       
+                },),
+              ),
             ],
           ),
         ),

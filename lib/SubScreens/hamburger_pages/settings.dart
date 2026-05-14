@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import './widget/circlepill_widget.dart';
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
@@ -20,13 +20,8 @@ class SettingsPage extends StatelessWidget {
               const SizedBox(height: 20),
 
               // Top bar
-              Row(
-                children: [
-                  _CircleBackButton(),
-                  const SizedBox(width: 16),
-                  _PillTitle(title: 'Settings'),
-                ],
-              ),
+              // Top bar
+                  CircleNav(initialTitle: "Settings"),
 
               const SizedBox(height: 36),
 

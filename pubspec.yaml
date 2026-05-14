@@ -33,6 +33,9 @@ flutter:
     #Logo
     - assets/Images/nextuse_logo/large_logo.png
     
+    #profile 
+    - assets/Images/Avatar/Avatar large (no border).png
+
     #Avatars
     - assets/Images/Onboarding/Onboarding 1.png
     - assets/Images/Onboarding/Onboarding 2.png

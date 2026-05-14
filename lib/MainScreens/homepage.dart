@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+//humberger
+import '../SubScreens/hamburger_pages/settings.dart';
+import '../SubScreens/hamburger_pages/profile.dart';
+import '../SubScreens/hamburger_pages/support.dart';
+
 //Working progress
 //import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -91,12 +96,21 @@ class _HomePageState extends State<HomePage> {
           drawer: Humburger(
             name: 'Florence Okoye',
             image: AssetImage(
-              'assets/images/profile.jpg',
+              'assets/Images/Avatar/Avatar large (no border).png',
             ), // or NetworkImage(url)
             width: 45,
-            onEditProfile: () {},
-            onSettings: () {}, //=> Navigator.pushNamed(context, '/settings'),
-            onSupport: () {}, //=> Navigator.pushNamed(context, '/support'),
+            onEditProfile: () {
+              Navigator.push(context,
+              MaterialPageRoute(builder: (_) => ProfilePage()));
+            },
+            onSettings: (){
+              Navigator.push(context,
+              MaterialPageRoute(builder: (_) => SettingsPage()));
+            },
+            onSupport: () {
+              Navigator.push(context,
+              MaterialPageRoute(builder: (_) => Support()));
+            }, //=> Navigator.pushNamed(context, '/support'),
             onPrivacyAbout:
                 () {}, // => Navigator.pushNamed(context, '/privacy'),
           ),
